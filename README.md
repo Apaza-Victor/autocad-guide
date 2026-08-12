@@ -2,6 +2,12 @@
 
 Guía interactiva de aprendizaje de AutoCAD, de cero a experto. Sitio web 100% estático con recursos didácticos: comandos, atajos de teclado, dimensionado, ejercicios prácticos, glosario y módulos por nivel, complementados con visualizaciones 3D interactivas en el navegador.
 
+## 🌐 Sitio publicado
+
+El sitio está disponible en línea en:
+
+**https://apaza-victor.github.io/autocad-guide/**
+
 ## ✨ Características
 
 - **Módulos de aprendizaje**: 15 módulos organizados por nivel, desde fundamentos hasta automatización.
