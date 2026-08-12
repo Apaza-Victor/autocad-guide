@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 5 · Capas y Organización — AutoCAD Guía Completa</title>
+    <meta name="description" content="Organiza proyectos con capas, colores, tipos de línea, grosores y filtros para mantener planos limpios.">
+    <meta property="og:title" content="Módulo 5 · Capas y Organización">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/additional-styles.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cascadia+Code:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <a href="../../index.html" class="logo"><div class="logo-icon">AC</div>AutoCAD Guía</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../que-es-cad.html">¿Qué es CAD?</a></li>
+                <li><a href="../comandos.html">Comandos</a></li>
+                <li><a href="../dimensiones.html">Dimensiones</a></li>
+                <li><a href="../glosario.html">Glosario</a></li>
+                <li><a href="../modulos.html" class="active">Módulos</a></li>
+                <li><a href="../recursos.html">Recursos</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            <a href="../comandos.html" class="nav-cta">Ver Comandos <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <div class="section-label">Módulo 5 de 12 · Nivel Intermedio</div>
+            <h1>Capas y Organización del Dibujo</h1>
+            <p>La diferencia entre un dibujo amateur y uno profesional es la organización.</p>
+        </div>
+    </div>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="callout">
+                <h4><i class="fa-solid fa-bullseye"></i> Objetivos del módulo</h4>
+                <p>Crear y gestionar capas, asignar propiedades (color, tipo de línea, grosor), usar estados de capa y aplicar buenas prácticas de organización.</p>
+            </div>
+
+            <h3><i class="fa-solid fa-stairs"></i> ¿Qué es una capa?</h3>
+            <p>Una capa es una "lámina transparente" donde agrupas entidades. Al dibujar cada elemento en su capa puedes controlar su <strong>visibilidad</strong>, <strong>color</strong> y <strong>tipo de línea</strong> de forma conjunta. Ejemplo típico: capas <code>MUROS</code>, <code>PUERTAS</code>, <code>VENTANAS</code>, <code>COTAS</code>, <code>MOBILIARIO</code>.</p>
+
+            <h3><i class="fa-solid fa-layer-group"></i> El Administrador de capas</h3>
+            <p>Abre el panel de capas con <code>CAPA</code> (<code>CA</code>) o desde la barra de herramientas. Desde ahí puedes crear, renombrar, congelar, bloquear y ocultar capas, así como cambiar sus propiedades.</p>
+            <ul>
+                <li><strong>Encender/Apagar:</strong> controla la visibilidad (los apagados no se imprimen).</li>
+                <li><strong>Congelar/Descongelar:</strong> como apagar pero además deja de calcularse (más rápido).</li>
+                <li><strong>Bloquear/Desbloquear:</strong> permite ver pero no editar.</li>
+            </ul>
+
+            <h3><i class="fa-solid fa-fill-drip"></i> Propiedades por capa</h3>
+            <p>Con la propiedad <code>PorCapa</code> los objetos heredan color, tipo de línea y grosor de su capa. Es la opción recomendada para mantener un dibujo ordenado y predecible en impresión. Usa <code>PROPIEDADES</code> (<code>PR</code>) para inspeccionar o cambiar la capa de un objeto.</p>
+
+            <h3><i class="fa-solid fa-broom"></i> Tipos de línea y grosores</h3>
+            <p>Los tipos de línea (continua, discontinua, trazo-punto...) se cargan desde <code>TIPOLIN</code>. El grosor (<code>GROSOR</code>) define el ancho de trazo en pantalla e impresión. Asigna cada uno <strong>por capa</strong>: por ejemplo, líneas discontinuas para elementos ocultos y mayor grosor para cortes.</p>
+
+            <h3><i class="fa-solid fa-magnifying-glass"></i> Filtros y selección rápida</h3>
+            <p>Con <code>CAPA</code> y la opción de filtros por nombre o propiedad encuentras capas rápido en proyectos grandes. <code>SELECCION RAPIDA</code> (<code>FILTRO</code>) selecciona todos los objetos con una propiedad dada (ej.: todos los que están en la capa <code>COTAS</code>).</p>
+
+            <h3><i class="fa-solid fa-keyboard"></i> Comandos clave</h3>
+            <table class="shortcuts-table">
+                <thead><tr><th>Comando</th><th>Función</th></tr></thead>
+                <tbody>
+                    <tr><td><span class="cmd-key">CAPA</span></td><td>Abre el administrador de capas.</td></tr>
+                    <tr><td><span class="cmd-key">PROPIEDADES</span></td><td>Inspecciona propiedades del objeto.</td></tr>
+                    <tr><td><span class="cmd-key">TIPOLIN</span></td><td>Gestiona los tipos de línea.</td></tr>
+                    <tr><td><span class="cmd-key">COINCIDIRPROP</span></td><td>Copia propiedades de un objeto a otro.</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout warning">
+                <h4><i class="fa-solid fa-triangle-exclamation"></i> Mala práctica</h4>
+                <p>Dibujar todo en la capa 0 y colorear objeto a objeto provoca dibujos imposibles de gestionar y errores de impresión. Crea capas desde el primer día.</p>
+            </div>
+
+            <div class="callout success">
+                <h4><i class="fa-solid fa-check-double"></i> Práctica</h4>
+                <p>Crea las capas <code>EJE</code> (discontinua, 0.13mm), <code>MUROS</code> (continua, 0.50mm) y <code>COTAS</code> (continua, 0.18mm). Dibuja en cada una el contenido correspondiente y comprueba que se imprime correctamente.</p>
+            </div>
+
+            <div class="module-nav">
+                <a href="modulo-04-modificacion.html" class="btn-secondary"><i class="fa-solid fa-arrow-left"></i> Módulo 4</a>
+                <a href="../modulos.html" class="btn-primary"><i class="fa-solid fa-th-list"></i> Todos los módulos</a>
+                <a href="modulo-06-bloques.html" class="btn-secondary">Módulo 6 · Bloques <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><div class="logo"><div class="logo-icon">AC</div>AutoCAD Guía</div><p>Tu guía completa para dominar AutoCAD.</p></div>
+                <div class="footer-links"><h4>Aprendizaje</h4><a href="../que-es-cad.html">¿Qué es CAD?</a><a href="../interfaz.html">Interfaz</a><a href="../comandos.html">Comandos</a><a href="../dimensiones.html">Dimensiones</a></div>
+                <div class="footer-links"><h4>Práctica</h4><a href="../ejercicios.html">Ejercicios</a><a href="../glosario.html">Glosario</a><a href="../modulos.html">Módulos</a><a href="../recursos.html">Recursos</a></div>
+                <div class="footer-links"><h4>Tecnología</h4><p style="font-size:0.85rem; color:var(--text-dim);">HTML, CSS, JS, Three.js</p></div>
+            </div>
+            <div class="footer-bottom"><p>© <span data-year></span> AutoCAD Guía Completa</p></div>
+        </div>
+    </footer>
+    <button class="back-to-top" id="backToTop">↑</button>
+    <script src="../../assets/js/app.js"></script>
+    <script src="../../assets/js/dynamic-year.js"></script>
+</body>
+</html>

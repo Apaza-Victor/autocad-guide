@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 6 · Bloques y Referencias — AutoCAD Guía Completa</title>
+    <meta name="description" content="Crea y reutiliza contenido con bloques, atributos, Design Center y referencias externas.">
+    <meta property="og:title" content="Módulo 6 · Bloques y Referencias">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/additional-styles.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cascadia+Code:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <a href="../../index.html" class="logo"><div class="logo-icon">AC</div>AutoCAD Guía</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../que-es-cad.html">¿Qué es CAD?</a></li>
+                <li><a href="../comandos.html">Comandos</a></li>
+                <li><a href="../dimensiones.html">Dimensiones</a></li>
+                <li><a href="../glosario.html">Glosario</a></li>
+                <li><a href="../modulos.html" class="active">Módulos</a></li>
+                <li><a href="../recursos.html">Recursos</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            <a href="../comandos.html" class="nav-cta">Ver Comandos <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <div class="section-label">Módulo 6 de 12 · Nivel Intermedio</div>
+            <h1>Bloques y Referencias</h1>
+            <p>Reutiliza contenido una y otra vez sin redibujar nada.</p>
+        </div>
+    </div>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="callout">
+                <h4><i class="fa-solid fa-bullseye"></i> Objetivos del módulo</h4>
+                <p>Crear e insertar bloques, definir atributos, aprovechar Design Center y trabajar con referencias externas (Xrefs).</p>
+            </div>
+
+            <h3><i class="fa-solid fa-cubes-stacked"></i> ¿Qué es un bloque?</h3>
+            <p>Un bloque es un conjunto de entidades agrupadas en un solo objeto con nombre. Se define una vez y se inserta las veces que quieras, lo que reduce el tamaño del archivo y permite actualizar todas las instancias a la vez. Ejemplos: puertas, ventanas, símbolos, rotulaciones.</p>
+
+            <h3><i class="fa-solid fa-plus"></i> Crear e insertar bloques</h3>
+            <p>Con <code>BLOQUE</code> (<code>B</code>) defines un bloque del dibujo; con <code>INSERT</code> (<code>I</code>) lo colocas. El <strong>punto base</strong> es clave: fíjalo en un punto de inserción lógico (ej.: el borde de una puerta). La paleta de bloques (<code>Ctrl+2</code>) te permite arrastrar y soltar.</p>
+
+            <h3><i class="fa-solid fa-tags"></i> Atributos</h3>
+            <p>Los atributos son datos variables dentro de un bloque (números de pieza, descripciones, alturas). Se definen con <code>DEFATR</code> (<code>ATTDEF</code>), se incluyen al crear el bloque y se rellenan al insertarlo o con <code>EDATR</code>. Son la base de tablas de lista de materiales y numeración automática.</p>
+
+            <h3><i class="fa-solid fa-diagram-project"></i> Design Center</h3>
+            <p>Design Center (<code>Ctrl+2</code>) es el "explorador de contenido": copia bloques, estilos, capas y tipos de línea desde otros archivos .dwg sin abrirlos. Perfecto para construir librerías de bloques propias.</p>
+
+            <h3><i class="fa-solid fa-link"></i> Referencias externas (Xrefs)</h3>
+            <p>Una <strong>referencia externa</strong> (<code>XREF</code>) enlaza otro dibujo al actual sin incorporarlo. Ideal para trabajo en equipo: cada persona dibuja su parte y los cambios se reflejan automáticamente. Se gestionan en el panel <code>XREF</code>, con opciones de enlace, descarga y recarga.</p>
+
+            <h3><i class="fa-solid fa-keyboard"></i> Comandos clave</h3>
+            <table class="shortcuts-table">
+                <thead><tr><th>Comando</th><th>Función</th></tr></thead>
+                <tbody>
+                    <tr><td><span class="cmd-key">BLOQUE</span></td><td>Crea un bloque con las entidades seleccionadas.</td></tr>
+                    <tr><td><span class="cmd-key">INSERT</span></td><td>Inserta un bloque en el dibujo.</td></tr>
+                    <tr><td><span class="cmd-key">DEFATR</span></td><td>Crea una definición de atributo.</td></tr>
+                    <tr><td><span class="cmd-key">EDATR</span></td><td>Edita los valores de los atributos.</td></tr>
+                    <tr><td><span class="cmd-key">XREF</span></td><td>Gestiona referencias externas.</td></tr>
+                    <tr><td><span class="cmd-key">EXPLOTAR</span></td><td>Divide un bloque en sus entidades originales.</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout warning">
+                <h4><i class="fa-solid fa-triangle-exclamation"></i> Precaución</h4>
+                <p>Explotar bloques con <code>EXPLOTAR</code> (<code>X</code>) destruye su ventaja de edición centralizada. Úsalo solo cuando sea estrictamente necesario.</p>
+            </div>
+
+            <div class="callout success">
+                <h4><i class="fa-solid fa-check-double"></i> Práctica</h4>
+                <p>Crea un bloque "Puerta" con atributos (ancho y material), insértalo 5 veces con valores distintos, edita uno con <code>EDATR</code> y comprueba que el resto se actualiza al redibujar el bloque.</p>
+            </div>
+
+            <div class="module-nav">
+                <a href="modulo-05-capas.html" class="btn-secondary"><i class="fa-solid fa-arrow-left"></i> Módulo 5</a>
+                <a href="../modulos.html" class="btn-primary"><i class="fa-solid fa-th-list"></i> Todos los módulos</a>
+                <a href="modulo-07-dimensionado.html" class="btn-secondary">Módulo 7 · Dimensionado <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><div class="logo"><div class="logo-icon">AC</div>AutoCAD Guía</div><p>Tu guía completa para dominar AutoCAD.</p></div>
+                <div class="footer-links"><h4>Aprendizaje</h4><a href="../que-es-cad.html">¿Qué es CAD?</a><a href="../interfaz.html">Interfaz</a><a href="../comandos.html">Comandos</a><a href="../dimensiones.html">Dimensiones</a></div>
+                <div class="footer-links"><h4>Práctica</h4><a href="../ejercicios.html">Ejercicios</a><a href="../glosario.html">Glosario</a><a href="../modulos.html">Módulos</a><a href="../recursos.html">Recursos</a></div>
+                <div class="footer-links"><h4>Tecnología</h4><p style="font-size:0.85rem; color:var(--text-dim);">HTML, CSS, JS, Three.js</p></div>
+            </div>
+            <div class="footer-bottom"><p>© <span data-year></span> AutoCAD Guía Completa</p></div>
+        </div>
+    </footer>
+    <button class="back-to-top" id="backToTop">↑</button>
+    <script src="../../assets/js/app.js"></script>
+    <script src="../../assets/js/dynamic-year.js"></script>
+</body>
+</html>

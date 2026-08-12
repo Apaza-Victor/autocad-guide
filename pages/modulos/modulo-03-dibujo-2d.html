@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 3 · Dibujo 2D Básico — AutoCAD Guía Completa</title>
+    <meta name="description" content="Herramientas de creación 2D: línea, círculo, arco, polilínea, rectángulo, polígono y elipse con precisión.">
+    <meta property="og:title" content="Módulo 3 · Dibujo 2D Básico">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/additional-styles.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cascadia+Code:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <a href="../../index.html" class="logo"><div class="logo-icon">AC</div>AutoCAD Guía</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../que-es-cad.html">¿Qué es CAD?</a></li>
+                <li><a href="../comandos.html">Comandos</a></li>
+                <li><a href="../dimensiones.html">Dimensiones</a></li>
+                <li><a href="../glosario.html">Glosario</a></li>
+                <li><a href="../modulos.html" class="active">Módulos</a></li>
+                <li><a href="../recursos.html">Recursos</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            <a href="../comandos.html" class="nav-cta">Ver Comandos <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <div class="section-label">Módulo 3 de 12 · Nivel Básico</div>
+            <h1>Dibujo 2D Básico</h1>
+            <p>Domina las herramientas de creación y traza tus primeras figuras con precisión total.</p>
+        </div>
+    </div>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="callout">
+                <h4><i class="fa-solid fa-bullseye"></i> Objetivos del módulo</h4>
+                <p>Crear entidades básicas (línea, círculo, arco, polilínea, rectángulo, polígono y elipse) introduciendo datos exactos y usando referencias.</p>
+            </div>
+
+            <h3><i class="fa-solid fa-vector-square"></i> La línea (L)</h3>
+            <p>El comando <code>LINEA</code> (atajo <code>L</code>) traza segmentos consecutivos. Introduce el primer punto y luego sigue la secuencia. Escribe <code>@10,0</code> para una línea horizontal de 10 unidades, o <code>@5&lt;45</code> para una de 5 unidades a 45°.</p>
+
+            <h3><i class="fa-regular fa-circle"></i> El círculo (C)</h3>
+            <p><code>CIRCULO</code> (<code>C</code>) ofrece varios métodos: centro + radio (el más común), centro + diámetro, 2P, 3P y Tangente-tangente-radio (<code>TTR</code>). Para tangente a dos objetos escribe <code>C</code>, luego <code>T</code> y selecciona las dos entidades.</p>
+
+            <h3><i class="fa-solid fa-circle-notch"></i> El arco (A)</h3>
+            <p><code>ARCO</code> (<code>A</code>) tiene métodos como 3 puntos, inicio-centro-fin, inicio-fin-radio y centro-inicio-ángulo. Usa el que mejor describa la geometría que necesitas.</p>
+
+            <h3><i class="fa-solid fa-wave-square"></i> La polilínea (PL)</h3>
+            <p><code>POLILINEA</code> (<code>PL</code>) crea una única entidad compuesta por segmentos rectos y arcos. Ideal para contornos porque todos los segmentos se seleccionan como un solo objeto. La opción <code>ARCO</code> dentro del comando dibuja curvas, y <code>C</code> cierra la polilínea.</p>
+
+            <h3><i class="fa-solid fa-square"></i> Rectángulo y polígono</h3>
+            <p><code>RECTANGULO</code> (<code>REC</code>) pide dos esquinas opuestas; también acepta dimensiones (opción <code>D</code>). <code>POLIGONO</code> (<code>POL</code>) crea polígonos regulares de 3 a 1024 lados definiendo centro + radio inscrito o circunscrito.</p>
+
+            <h3><i class="fa-solid fa-ellipsis"></i> La elipse (EL)</h3>
+            <p><code>ELIPSE</code> (<code>EL</code>) se define por dos ejes o por centro + semiejes. Con <code>ISOCIRCULO</code> puedes dibujar círculos isométricos para vistas 3D isométricas.</p>
+
+            <h3><i class="fa-solid fa-keyboard"></i> Comandos clave</h3>
+            <table class="shortcuts-table">
+                <thead><tr><th>Comando</th><th>Atajo</th><th>Función</th></tr></thead>
+                <tbody>
+                    <tr><td><span class="cmd-key">LINEA</span></td><td>L</td><td>Dibuja líneas consecutivas.</td></tr>
+                    <tr><td><span class="cmd-key">CIRCULO</span></td><td>C</td><td>Dibuja círculos.</td></tr>
+                    <tr><td><span class="cmd-key">ARCO</span></td><td>A</td><td>Dibuja arcos.</td></tr>
+                    <tr><td><span class="cmd-key">POLILINEA</span></td><td>PL</td><td>Dibuja entidad compuesta.</td></tr>
+                    <tr><td><span class="cmd-key">RECTANGULO</span></td><td>REC</td><td>Dibuja rectángulos.</td></tr>
+                    <tr><td><span class="cmd-key">POLIGONO</span></td><td>POL</td><td>Dibuja polígonos regulares.</td></tr>
+                    <tr><td><span class="cmd-key">ELIPSE</span></td><td>EL</td><td>Dibuja elipses.</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout warning">
+                <h4><i class="fa-solid fa-triangle-exclamation"></i> Precaución</h4>
+                <p>No dibujes "a ojo". Usa coordenadas, medidas exactas y referencias a objetos (OSNAP). Un dibujo impreciso se convierte en un problema serio al fabricar o construir.</p>
+            </div>
+
+            <div class="callout success">
+                <h4><i class="fa-solid fa-check-double"></i> Práctica</h4>
+                <p>Dibuja una figura con un rectángulo de 100×60, un círculo de radio 20 centrado en su interior y una polilínea que contornee ambas figuras. Comprueba con <code>AREA</code> que las medidas son correctas.</p>
+            </div>
+
+            <div class="module-nav">
+                <a href="modulo-02-interfaz.html" class="btn-secondary"><i class="fa-solid fa-arrow-left"></i> Módulo 2</a>
+                <a href="../modulos.html" class="btn-primary"><i class="fa-solid fa-th-list"></i> Todos los módulos</a>
+                <a href="modulo-04-modificacion.html" class="btn-secondary">Módulo 4 · Modificación <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><div class="logo"><div class="logo-icon">AC</div>AutoCAD Guía</div><p>Tu guía completa para dominar AutoCAD.</p></div>
+                <div class="footer-links"><h4>Aprendizaje</h4><a href="../que-es-cad.html">¿Qué es CAD?</a><a href="../interfaz.html">Interfaz</a><a href="../comandos.html">Comandos</a><a href="../dimensiones.html">Dimensiones</a></div>
+                <div class="footer-links"><h4>Práctica</h4><a href="../ejercicios.html">Ejercicios</a><a href="../glosario.html">Glosario</a><a href="../modulos.html">Módulos</a><a href="../recursos.html">Recursos</a></div>
+                <div class="footer-links"><h4>Tecnología</h4><p style="font-size:0.85rem; color:var(--text-dim);">HTML, CSS, JS, Three.js</p></div>
+            </div>
+            <div class="footer-bottom"><p>© <span data-year></span> AutoCAD Guía Completa</p></div>
+        </div>
+    </footer>
+    <button class="back-to-top" id="backToTop">↑</button>
+    <script src="../../assets/js/app.js"></script>
+    <script src="../../assets/js/dynamic-year.js"></script>
+</body>
+</html>

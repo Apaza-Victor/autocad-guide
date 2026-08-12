@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glosario — AutoCAD Guía Completa</title>
+    <meta name="description" content="Glosario de AutoCAD: tips y trucos, palabras con significado y concepto, y tabla de comandos con qué hace, cómo y cuándo usarlo.">
+    <meta property="og:title" content="Glosario — AutoCAD Guía Completa">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/additional-styles.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cascadia+Code:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo"><div class="logo-icon">AC</div>AutoCAD Guía</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="que-es-cad.html">¿Qué es CAD?</a></li>
+                <li><a href="comandos.html">Comandos</a></li>
+                <li><a href="dimensiones.html">Dimensiones</a></li>
+                <li><a href="glosario.html" class="active">Glosario</a></li>
+                <li><a href="modulos.html">Módulos</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            <a href="comandos.html" class="nav-cta">Ver Comandos <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <div class="section-label">Referencia Rápida</div>
+            <h1>Glosario</h1>
+            <p>Tips y trucos, palabras con su significado y concepto, y la explicación de qué hace cada comando, cómo y cuándo usarlo.</p>
+        </div>
+    </div>
+
+    <section class="content-section">
+        <div class="container">
+
+            <!-- TIPS Y TRUCOS -->
+            <h2 style="margin: 0 0 8px; font-size: 1.7rem;"><i class="fa-solid fa-lightbulb"></i> Tips y Trucos</h2>
+            <p class="section-desc" style="margin-bottom: 24px;">Atajos y buenas prácticas que aceleran tu flujo de trabajo en AutoCAD.</p>
+            <div class="tips-grid">
+
+                <div class="tip-card fade-up">
+                    <h3>Enter repite el último comando</h3>
+                    <p>Después de ejecutar un comando, presionar <span class="key">Enter</span> o <span class="key">Espacio</span> lo vuelve a ejecutar. Perfecto para <code>LÍNEA</code>, <code>CÍRCULO</code> o <code>DESFASE</code> cuando vas a usarlos varias veces seguidas.</p>
+                </div>
+
+                <div class="tip-card fade-up">
+                    <h3>Espacio = Enter</h3>
+                    <p>En AutoCAD la barra espaciadora equivale a <span class="key">Enter</span>. Puedes dibujar líneas sin mover la mano: clic, espacio, clic, espacio.</p>
+                </div>
+
+                <div class="tip-card fade-up">
+                    <h3>ESC cancela todo</h3>
+                    <p>Pulsa <span class="key">ESC</span> una vez para salir del comando actual y dos veces para deseleccionar objetos. Es la forma más rápida de empezar de nuevo.</p>
+                </div>
+
+                <div class="tip-card fade-up">
+                    <h3>Ventana vs. cruce de selección</h3>
+                    <p>Seleccionar de <strong>izquierda a derecha</strong> selecciona solo lo que queda completamente dentro. De <strong>derecha a izquierda</strong> selecciona todo lo que la ventana toca. Útil para filtrar objetos.</p>
+                </div>
+
+                <div class="tip-card fade-up">
+                    <h3>Referencias a objetos (F3)</h3>
+                    <p>Activa <code>OSNAP</code> con <span class="key">F3</span> para capturar puntos exactos: extremos, centros, intersecciones y cuadrantes. Dibuja con precisión sin calcular coordenadas.</p>
+                </div>
+
+                <div class="tip-card fade-up">
+                    <h3>Usa bloques, no copies y pegues</h3>
+                    <p>Los <code>BLOQUE</code>s pesan menos y se actualizan todos a la vez. Si cambias la definición, cada instancia del dibujo se actualiza automáticamente.</p>
+                </div>
+
+                <div class="tip-card fade-up">
+                    <h3>Capas = orden y control</h3>
+                    <p>Separa muros, mobiliario, cotas y textos en capas distintas. Podrás congelar, bloquear o cambiar el color de todo un tipo de objeto con un clic.</p>
+                </div>
+
+                <div class="tip-card fade-up">
+                    <h3>Guarda en versiones anteriores</h3>
+                    <p>Al guardar, elige un formato compatible (DWG 2013 o inferior) para que colegas con versiones antiguas puedan abrir tus archivos sin problemas.</p>
+                </div>
+
+                <div class="tip-card fade-up">
+                    <h3>Comando bajo guion bajo</h3>
+                    <p>Si escribes <code>_TRIM</code> o <code>_OFFSET</code>, AutoCAD ejecuta el comando en inglés sin importar el idioma instalado. Útil cuando no recuerdas la traducción.</p>
+                </div>
+
+                <div class="tip-card fade-up">
+                    <h3>Aprovecha los modos F8 y F10</h3>
+                    <p>Activa <code>ORTO</code> (<span class="key">F8</span>) para líneas perfectamente horizontales o verticales, y <code>POLAR</code> (<span class="key">F10</span>) para dibujar en ángulos exactos como 45°.</p>
+                </div>
+
+                <div class="tip-card fade-up">
+                    <h3>Limpia tu dibujo antes de entregar</h3>
+                    <p>Usa <code>LIMPIA</code> para eliminar capas, estilos y bloques no utilizados. Reduce el peso del archivo y evita errores al imprimir.</p>
+                </div>
+
+                <div class="tip-card fade-up">
+                    <h3>Abre varios archivos con pestañas</h3>
+                    <p>Usa <code>Ctrl+Tab</code> para cambiar entre dibujos abiertos. Arrastra objetos de un dibujo a otro con <code>COPIARBASE</code> (Ctrl+Shift+C) y <code>PEGAR</code> (Ctrl+V).</p>
+                </div>
+
+            </div>
+
+            <!-- PALABRAS Y CONCEPTOS -->
+            <h2 style="margin: 56px 0 8px; font-size: 1.7rem;"><i class="fa-solid fa-book"></i> Palabras y Conceptos</h2>
+            <p class="section-desc" style="margin-bottom: 24px;">Terminología esencial de AutoCAD con su significado y concepto.</p>
+            <div class="glossary-grid">
+
+                <div class="glossary-card">
+                    <h4>CAD</h4>
+                    <p><strong>Computer-Aided Design.</strong> Diseño asistido por computadora: software que permite crear, editar y documentar dibujos técnicos en 2D y 3D con precisión milimétrica.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>DWG</h4>
+                    <p><strong>Drawing.</strong> Formato nativo de archivo de AutoCAD. Es el estándar de intercambio en la industria del diseño y la ingeniería.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>DXF</h4>
+                    <p><strong>Drawing Exchange Format.</strong> Formato abierto para intercambiar dibujos entre programas distintos. Útil cuando el receptor no usa AutoCAD.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>Modelo</h4>
+                    <p>Espacio de trabajo donde se dibuja a escala real (1:1). Todo el dibujo se crea aquí; la presentación en papel se hace aparte.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>Espacio papel</h4>
+                    <p>Entorno donde se maqueta la lámina: marcos, rótulos y ventanas que muestran el modelo a distintas escalas. Lo que ves aquí es lo que se imprime.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>Escala</h4>
+                    <p>Relación entre la medida dibujada y la medida real. Por ejemplo, 1:50 significa que 1 unidad en el plano representa 50 unidades reales.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>Capa</h4>
+                    <p>Nivel transparente que agrupa objetos con propiedades comunes. Permite organizar el dibujo y controlar la visibilidad de cada elemento.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>Bloque</h4>
+                    <p>Conjunto de objetos agrupados en una sola entidad reutilizable. Se inserta cuantas veces se quiera; todas las copias comparten la misma definición.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>OSNAP</h4>
+                    <p><strong>Object Snap / Adpuntar.</strong> Modo que captura puntos exactos de los objetos (extremos, centros, intersecciones) para dibujar con precisión.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>UCS</h4>
+                    <p><strong>User Coordinate System.</strong> Sistema de coordenadas de usuario. Se puede rotar o desplazar para dibujar cómodamente en planos inclinados o caras 3D.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>XREF</h4>
+                    <p><strong>External Reference.</strong> Referencia externa: vincula otro archivo DWG al dibujo sin insertarlo. Ideal para trabajar en equipo sobre el mismo proyecto.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>Cota / Dimensión</h4>
+                    <p>Anotación que indica la medida de un objeto. En AutoCAD se crea con <code>DIMENSIONAR</code> y se controla con estilos de cota.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>Polilínea</h4>
+                    <p>Entidad formada por segmentos unidos en un solo objeto. Se crea con <code>POLILÍNEA</code>; a diferencia de la línea, se puede editar como una sola pieza.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>Entidad / Objeto</h4>
+                    <p>Elemento básico del dibujo: línea, círculo, arco, texto, cota, bloque, etc. Cada entidad tiene propiedades (capa, color, tipo de línea) que puedes editar.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>Grips / Pinzamientos</h4>
+                    <p>Cuadrados azules que aparecen al seleccionar un objeto. Permiten estirar, mover, rotar o escalar directamente arrastrando desde esos puntos.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>Rótulo / Cajetín</h4>
+                    <p>Tabla en la lámina con datos del dibujo: título, autor, escala, fecha y revisión. Se coloca normalmente abajo a la derecha.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>Annotative</h4>
+                    <p>Propiedad que ajusta el tamaño de textos y cotas automáticamente según la escala de la ventana. Evita redimensionar anotaciones en cada lámina.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>Render</h4>
+                    <p>Proceso de generar una imagen realista a partir del modelo 3D aplicando luces, materiales y fondo. Se ejecuta con <code>RENDERIZAR</code>.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>Sólido</h4>
+                    <p>Objeto 3D con volumen y masa, creado con comandos como <code>CAJA</code>, <code>EXTRUIR</code> o <code>REVOLUCIÓN</code>. Se combina con uniones y sustrascciones.</p>
+                </div>
+
+                <div class="glossary-card">
+                    <h4>Ventana (Layout / Viewport)</h4>
+                    <p>Recorte dentro del espacio papel que muestra una vista del modelo. Cada ventana puede tener su propia escala y capas visibles.</p>
+                </div>
+
+            </div>
+
+            <!-- COMANDOS: QUÉ HACE, CÓMO Y CUÁNDO -->
+            <h2 style="margin: 56px 0 8px; font-size: 1.7rem;"><i class="fa-solid fa-terminal"></i> Comandos: Qué hace, Cómo y Cuándo usarlo</h2>
+            <p class="section-desc" style="margin-bottom: 24px;">Los comandos esenciales explicados con su propósito, la forma de usarlos y el momento ideal para aplicarlos.</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width:16%;">Comando</th>
+                        <th style="width:26%;">Qué hace</th>
+                        <th style="width:30%;">Cómo usarlo</th>
+                        <th style="width:28%;">Cuándo usarlo</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr><td colspan="4" class="table-group">Dibujo</td></tr>
+                    <tr>
+                        <td><span class="key">L</span> LÍNEA</td>
+                        <td>Crea segmentos rectos entre dos o más puntos.</td>
+                        <td>Escribe <code>L</code> y da clic en cada punto; pulsa <span class="key">ESC</span> para terminar.</td>
+                        <td>Para cualquier trazo recto: contornos, muros, ejes, cables.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">C</span> CÍRCULO</td>
+                        <td>Dibuja una circunferencia definida por centro y radio o diámetro.</td>
+                        <td><code>C</code> → clic en el centro → escribe el radio o el diámetro.</td>
+                        <td>Agujeros, columnas, ruedas y elementos circulares.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">REC</span> RECTÁNGULO</td>
+                        <td>Dibuja un rectángulo como una sola polilínea.</td>
+                        <td><code>REC</code> → primer esquina → segunda esquina o medidas con <code>@L,A</code>.</td>
+                        <td>Bases de piezas, puertas, ventanas y cualquier forma rectangular.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">PL</span> POLILÍNEA</td>
+                        <td>Crea una secuencia de líneas y arcos unidos en un solo objeto.</td>
+                        <td><code>PL</code> → clic en cada vértice; usa <code>A</code> para pasar a arco.</td>
+                        <td>Contornos que se editan como una pieza o que se convertirán en sólidos.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">A</span> ARCO</td>
+                        <td>Dibuja un arco definido por tres puntos o por punto inicial, centro y ángulo.</td>
+                        <td><code>A</code> → elige el método (3 puntos es el más intuitivo) → clic en los puntos.</td>
+                        <td>Curvas de transición, puertas abiertas y trazados curvos.</td>
+                    </tr>
+
+                    <tr><td colspan="4" class="table-group">Modificación</td></tr>
+                    <tr>
+                        <td><span class="key">M</span> MOVER</td>
+                        <td>Desplaza uno o varios objetos de un punto a otro.</td>
+                        <td><code>M</code> → selecciona objetos → punto base → punto destino.</td>
+                        <td>Reposicionar mobiliario, piezas o cualquier elemento fuera de lugar.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">CO</span> COPIAR</td>
+                        <td>Crea copias idénticas de los objetos seleccionados.</td>
+                        <td><code>CO</code> → selecciona → punto base → clic en cada copia deseada.</td>
+                        <td>Repetir elementos idénticos: sillas, columnas, tomacorrientes.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">GI</span> GIRAR</td>
+                        <td>Rota objetos alrededor de un punto base.</td>
+                        <td><code>GI</code> → selecciona → punto base → escribe el ángulo (ej: 45).</td>
+                        <td>Orientar piezas, muros o símbolos a un ángulo específico.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">ES</span> ESCALAR</td>
+                        <td>Cambia el tamaño de los objetos proporcionalmente.</td>
+                        <td><code>ES</code> → selecciona → punto base → factor (2 duplica, 0.5 reduce).</td>
+                        <td>Ajustar un detalle al tamaño correcto o escalar toda una planta.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">SI</span> SIMETRÍA</td>
+                        <td>Crea una imagen espejo de los objetos.</td>
+                        <td><code>SI</code> → selecciona → dos puntos del eje → ¿borrar origen? (S/N).</td>
+                        <td>Dibujar la mitad simétrica de una pieza o planta.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">RR</span> RECORTAR</td>
+                        <td>Corta los objetos hasta los límites seleccionados.</td>
+                        <td><code>RR</code> → selecciona los bordes → <span class="key">Enter</span> → clic en lo que sobra.</td>
+                        <td>Limpiar intersecciones de muros o líneas que se cruzan.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">AL</span> ALARGAR</td>
+                        <td>Extiende objetos hasta alcanzar un límite.</td>
+                        <td><code>AL</code> → selecciona el límite → clic en el extremo a extender.</td>
+                        <td>Cerrar líneas que no llegan a tocar su contorno.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">DF</span> DESFASE</td>
+                        <td>Crea una copia paralela a una distancia fija.</td>
+                        <td><code>DF</code> → escribe distancia → clic en el objeto → clic del lado hacia dónde.</td>
+                        <td>Muros en paralelo, cotas repetidas, contornos concéntricos.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">EM</span> EMPALME</td>
+                        <td>Redondea esquinas con un radio determinado.</td>
+                        <td><code>EM</code> → <code>R</code> → radio → clic en las dos líneas.</td>
+                        <td>Esquinas redondeadas de piezas mecánicas o mobiliario.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">CH</span> CHAFLÁN</td>
+                        <td>Corta esquinas en bisel con distancias o un ángulo.</td>
+                        <td><code>CH</code> → <code>D</code> → distancias → clic en las dos líneas.</td>
+                        <td>Bordes achaflanados típicos en piezas mecanizadas.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">E</span> BORRAR</td>
+                        <td>Elimina los objetos seleccionados.</td>
+                        <td><code>E</code> → selecciona → <span class="key">Enter</span>. También con <span class="key">Supr</span>.</td>
+                        <td>Quitar elementos sobrantes del dibujo.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">DP</span> DESCOMPONER</td>
+                        <td>Descompone un bloque o polilínea en sus elementos básicos.</td>
+                        <td><code>DP</code> → selecciona el bloque → <span class="key">Enter</span>.</td>
+                        <td>Cuando necesitas editar partes individuales de un bloque.</td>
+                    </tr>
+
+                    <tr><td colspan="4" class="table-group">Anotación y Organización</td></tr>
+                    <tr>
+                        <td><span class="key">T</span> TEXTO</td>
+                        <td>Crea texto de una o varias líneas (párrafo).</td>
+                        <td><code>T</code> → dibuja el recuadro → escribe el texto → <span class="key">Enter</span>.</td>
+                        <td>Notas, especificaciones, rótulos y títulos en la lámina.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">DIM</span> DIMENSIONAR</td>
+                        <td>Crea cotas lineales, alineadas, radiales y angulares.</td>
+                        <td><code>DIM</code> → elige el tipo → clic en los puntos a medir.</td>
+                        <td>Indicar medidas de objetos en el plano de presentación.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">B</span> BLOQUE</td>
+                        <td>Agrupa objetos en una entidad reutilizable.</td>
+                        <td><code>B</code> → nombre → punto base → seleccionar objetos → aceptar.</td>
+                        <td>Símbolos repetidos: puertas, muebles, salidas eléctricas.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">I</span> INSERTAR</td>
+                        <td>Coloca una instancia de un bloque o archivo externo.</td>
+                        <td><code>I</code> → elige el bloque → clic en el punto de inserción.</td>
+                        <td>Colocar cualquier símbolo guardado en el dibujo.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">CA</span> CAPA</td>
+                        <td>Administra capas: crearlas, congelarlas, bloquearlas y cambiar sus propiedades.</td>
+                        <td><code>CA</code> → administrador de capas → botón <strong>Nueva</strong>.</td>
+                        <td>Organizar el dibujo por disciplinas: muros, mobiliario, cotas.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">TA</span> TABLA</td>
+                        <td>Inserta una tabla editable con datos y fórmulas.</td>
+                        <td><code>TA</code> → columnas y filas → llena el contenido.</td>
+                        <td>Listados de materiales, cargas eléctricas, cuadros de vanos.</td>
+                    </tr>
+
+                    <tr><td colspan="4" class="table-group">Vista y Utilidades</td></tr>
+                    <tr>
+                        <td><span class="key">Z</span> ZOOM</td>
+                        <td>Acerca o aleja la vista sin modificar el dibujo.</td>
+                        <td><code>Z</code> → <code>A</code> para todo, <code>E</code> para extensión, <code>W</code> ventana.</td>
+                        <td>Navegar: ver el dibujo completo o acercarse a un detalle.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">EN</span> ENCUADRE</td>
+                        <td>Desplaza la vista (pan) sin cambiar el zoom.</td>
+                        <td><code>EN</code> → mantén el clic y arrastra. También con la rueda del mouse.</td>
+                        <td>Moverse por zonas del dibujo manteniendo el nivel de zoom.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">MG</span> MEDIRGEOM</td>
+                        <td>Mide distancias, ángulos, áreas y radios.</td>
+                        <td><code>MG</code> → elige la medición → clic en los puntos.</td>
+                        <td>Verificar medidas antes de dimensionar o entregar.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">LI</span> LIMPIA</td>
+                        <td>Elimina bloques, capas y estilos no utilizados.</td>
+                        <td><code>LI</code> → marca lo que quieres depurar → <strong>Limpiar</strong>.</td>
+                        <td>Antes de guardar o enviar un archivo pesado.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">RG</span> REGEN</td>
+                        <td>Regenera la pantalla y recalcula la geometría.</td>
+                        <td>Escribe <code>RG</code> y pulsa <span class="key">Enter</span>.</td>
+                        <td>Cuando los círculos se ven poligonales o la pantalla muestra basura gráfica.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">PR</span> PROPIEDADES</td>
+                        <td>Abre el panel para editar propiedades de los objetos seleccionados.</td>
+                        <td><code>PR</code> → selecciona el objeto → cambia capa, color, tipo de línea, etc.</td>
+                        <td>Ajustar la apariencia exacta de uno o varios objetos.</td>
+                    </tr>
+
+                    <tr><td colspan="4" class="table-group">Modelado 3D</td></tr>
+                    <tr>
+                        <td><span class="key">BOX</span> CAJA</td>
+                        <td>Crea un sólido con forma de cubo o paralelepípedo.</td>
+                        <td><code>BOX</code> → primera esquina → longitud, ancho y alto.</td>
+                        <td>Base de cualquier modelo: muros, bloques, volúmenes.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">EXTR</span> EXTRUIR</td>
+                        <td>Convierte un perfil 2D en un sólido con altura.</td>
+                        <td><code>EXTR</code> → selecciona el perfil → escribe la altura.</td>
+                        <td>Dar volumen a plantas o perfiles cerrados dibujados en 2D.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">UNI</span> UNIÓN</td>
+                        <td>Combina varios sólidos en uno solo.</td>
+                        <td><code>UNI</code> → selecciona los sólidos → <span class="key">Enter</span>.</td>
+                        <td>Fusionar muros con la losa o piezas ensambladas.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">SU</span> SUSTRACCIÓN</td>
+                        <td>Resta un sólido de otro para crear vacíos.</td>
+                        <td><code>SU</code> → selecciona el sólido base → <span class="key">Enter</span> → los que restas.</td>
+                        <td>Cortar puertas, ventanas o taladros en un sólido.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">GIR</span> GIRAR3D</td>
+                        <td>Rota sólidos alrededor de un eje en el espacio.</td>
+                        <td><code>GIR</code> → selecciona → define el eje → ángulo.</td>
+                        <td>Colocar piezas inclinadas o repetir elementos en círculo.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">MAT</span> MATERIALES</td>
+                        <td>Asigna materiales y texturas a los sólidos.</td>
+                        <td><code>MAT</code> → navegador de materiales → arrastra al objeto.</td>
+                        <td>Dar realismo al modelo antes del render.</td>
+                    </tr>
+                    <tr>
+                        <td><span class="key">RENDER</span> RENDERIZAR</td>
+                        <td>Genera una imagen fotorrealista del modelo.</td>
+                        <td><code>RENDER</code> → ajusta luces y cámara → espera el resultado.</td>
+                        <td>Presentación final de proyectos o vistas de cliente.</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <!-- ERRORES COMUNES -->
+            <h2 style="margin: 56px 0 8px; font-size: 1.7rem;"><i class="fa-solid fa-triangle-exclamation"></i> Errores Comunes y Cómo Evitarlos</h2>
+            <p class="section-desc" style="margin-bottom: 24px;">Los fallos más frecuentes al dibujar y la forma de corregirlos.</p>
+            <div class="error-grid">
+
+                <div class="error-card">
+                    <h4>No activar las referencias a objetos</h4>
+                    <p>Las líneas quedan "casi conectadas" y las medidas no cierran.</p>
+                    <div class="fix">Solución: pulsa <span class="key">F3</span> para activar OSNAP y marca extremo, centro e intersección en sus ajustes.</div>
+                </div>
+
+                <div class="error-card">
+                    <h4>Dibujar todo en una sola capa</h4>
+                    <p>Imposible congelar tipos de objetos; el dibujo es un caos para imprimir.</p>
+                    <div class="fix">Solución: define capas desde el inicio (muros, cotas, textos) con <code>CA</code> y usa la capa correcta al dibujar.</div>
+                </div>
+
+                <div class="error-card">
+                    <h4>Copiar y pegar en lugar de usar bloques</h4>
+                    <p>Archivos pesados y correcciones que se hacen una por una.</p>
+                    <div class="fix">Solución: crea bloques con <code>B</code> e insértalos con <code>I</code>. Un cambio en la definición actualiza todas las copias.</div>
+                </div>
+
+                <div class="error-card">
+                    <h4>Escalas incorrectas al imprimir</h4>
+                    <p>La lámina sale a escala equivocada y las cotas no corresponden.</p>
+                    <div class="fix">Solución: dibuja siempre en 1:1 en el espacio modelo y aplica la escala solo en las ventanas del espacio papel.</div>
+                </div>
+
+                <div class="error-card">
+                    <h4>Texto o cotas que desaparecen al cambiar de escala</h4>
+                    <p>Las anotaciones se ven gigantes o diminutas en la ventana.</p>
+                    <div class="fix">Solución: usa anotaciones <strong>Annotative</strong> y asígnales la escala de cada ventana con la lista de escala.</div>
+                </div>
+
+                <div class="error-card">
+                    <h4>Guardar en formato que el cliente no puede abrir</h4>
+                    <p>El archivo no se abre en versiones antiguas o programas externos.</p>
+                    <div class="fix">Solución: guarda en DWG de versión anterior o exporta a DXF si el destinatario usa otro software.</div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><div class="logo"><div class="logo-icon">AC</div>AutoCAD Guía</div><p>Tu guía completa para dominar AutoCAD.</p></div>
+                <div class="footer-links"><h4>Aprendizaje</h4><a href="que-es-cad.html">¿Qué es CAD?</a><a href="interfaz.html">Interfaz</a><a href="comandos.html">Comandos</a></div>
+                <div class="footer-links"><h4>Práctica</h4><a href="ejercicios.html">Ejercicios</a><a href="glosario.html">Glosario</a><a href="modulos.html">Módulos</a><a href="recursos.html">Recursos</a></div>
+                <div class="footer-links"><h4>Tecnología</h4><p style="font-size:0.85rem; color:var(--text-dim);">HTML, CSS, JS, Three.js</p></div>
+            </div>
+            <div class="footer-bottom"><p>© <span data-year></span> AutoCAD Guía Completa</p></div>
+        </div>
+    </footer>
+    <button class="back-to-top" id="backToTop">↑</button>
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/dynamic-year.js"></script>
+</body>
+</html>

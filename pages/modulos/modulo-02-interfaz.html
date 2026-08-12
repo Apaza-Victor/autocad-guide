@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2 · Interfaz y Entorno de Trabajo — AutoCAD Guía Completa</title>
+    <meta name="description" content="Conoce cada parte de la interfaz de AutoCAD: cinta de opciones, área de dibujo, paletas, navegación y gestión de archivos.">
+    <meta property="og:title" content="Módulo 2 · Interfaz y Entorno de Trabajo">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/additional-styles.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cascadia+Code:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <a href="../../index.html" class="logo"><div class="logo-icon">AC</div>AutoCAD Guía</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../que-es-cad.html">¿Qué es CAD?</a></li>
+                <li><a href="../comandos.html">Comandos</a></li>
+                <li><a href="../dimensiones.html">Dimensiones</a></li>
+                <li><a href="../glosario.html">Glosario</a></li>
+                <li><a href="../modulos.html" class="active">Módulos</a></li>
+                <li><a href="../recursos.html">Recursos</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            <a href="../comandos.html" class="nav-cta">Ver Comandos <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <div class="section-label">Módulo 2 de 12 · Nivel Básico</div>
+            <h1>Interfaz y Entorno de Trabajo</h1>
+            <p>Aprende a moverte con confianza por cada rincón del entorno de AutoCAD.</p>
+        </div>
+    </div>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="callout">
+                <h4><i class="fa-solid fa-bullseye"></i> Objetivos del módulo</h4>
+                <p>Identificar cada zona de la ventana de AutoCAD, navegar por el dibujo, personalizar el espacio de trabajo y gestionar archivos de forma correcta.</p>
+            </div>
+
+            <h3><i class="fa-solid fa-window-maximize"></i> Zonas de la ventana</h3>
+            <ul>
+                <li><strong>Barra de título:</strong> nombre del archivo y de la aplicación.</li>
+                <li><strong>Cinta de opciones (Ribbon):</strong> pestañas y paneles con las herramientas agrupadas por función (Inicio, Insertar, Anotar, Vista...).</li>
+                <li><strong>Área de dibujo:</strong> el lienzo donde trabajas; incluye el <em>crosshair</em> (cruz del cursor) y el icono UCS.</li>
+                <li><strong>Línea de comando:</strong> la consola donde escribes comandos y AutoCAD te pide datos. Es la herramienta más potente: domínala y serás experto.</li>
+                <li><strong>Barra de estado:</strong> botones de referencia a objetos (OSNAP), ORTHO, polar, rejilla y coordenadas del cursor.</li>
+            </ul>
+
+            <h3><i class="fa-solid fa-up-down-left-right"></i> Navegación del dibujo</h3>
+            <ul>
+                <li><strong>Zoom:</strong> rueda del ratón (acercar/alejar), <code>ZOOM</code> con opciones como <code>EXT</code> (extensión) o <code>T</code> (tiempo real).</li>
+                <li><strong>PAN:</strong> mantén pulsada la rueda del ratón para desplazarte, o usa el comando <code>PAN</code>.</li>
+                <li><strong>Encuadre:</strong> <code>Z</code> seguido de <code>Enter</code> activa la vista anterior.</li>
+                <li><strong>ViewCube:</strong> en 3D te permite rotar la vista con un clic.</li>
+            </ul>
+
+            <h3><i class="fa-solid fa-palette"></i> Paletas y espacios de trabajo</h3>
+            <p>AutoCAD incluye paletas como <strong>Propiedades</strong>, <strong>Capas</strong>, <strong>Design Center</strong> y <strong>Bloques</strong>. Ábrelas con <code>Ctrl+1</code> (propiedades), <code>Ctrl+2</code> (Design Center) y <code>Ctrl+3</code> (paletas de herramientas). Cambia de espacio de trabajo desde la barra de estado: <strong>Dibujo y anotación</strong>, <strong>Modelado 3D</strong> o <strong>Clásico</strong>.</p>
+
+            <h3><i class="fa-solid fa-file"></i> Gestión de archivos</h3>
+            <table class="shortcuts-table">
+                <thead><tr><th>Comando</th><th>Función</th></tr></thead>
+                <tbody>
+                    <tr><td><span class="cmd-key">NUEVO</span></td><td>Crea un dibujo nuevo (con plantilla o en blanco).</td></tr>
+                    <tr><td><span class="cmd-key">ABRIR</span></td><td>Abre un archivo .dwg existente.</td></tr>
+                    <tr><td><span class="cmd-key">GUARDAR</span></td><td>Guarda el dibujo actual.</td></tr>
+                    <tr><td><span class="cmd-key">GUARDARCOMO</span></td><td>Guarda con otro nombre, formato o versión.</td></tr>
+                    <tr><td><span class="cmd-key">PLANTILLA</span></td><td>Guarda el dibujo como plantilla .dwt reutilizable.</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout warning" style="margin-top: 32px;">
+                <h4><i class="fa-solid fa-triangle-exclamation"></i> Errores comunes</h4>
+                <p>No guardar a tiempo, usar unidades incorrectas desde el inicio y cerrar la línea de comando. Recuerda: el comando <code>F2</code> abre el historial completo de la línea de comando y <code>Ctrl+Z</code> deshace errores.</p>
+            </div>
+
+            <div class="callout success">
+                <h4><i class="fa-solid fa-check-double"></i> Práctica</h4>
+                <p>Abre un dibujo nuevo y recorre todas las pestañas de la cinta. Prueba cada botón de la barra de estado (ORTHO, OSNAP, POLAR). Guarda tu primer archivo como <code>mi-primer-dibujo.dwg</code>.</p>
+            </div>
+
+            <div class="module-nav">
+                <a href="modulo-01-fundamentos.html" class="btn-secondary"><i class="fa-solid fa-arrow-left"></i> Módulo 1</a>
+                <a href="../modulos.html" class="btn-primary"><i class="fa-solid fa-th-list"></i> Todos los módulos</a>
+                <a href="modulo-03-dibujo-2d.html" class="btn-secondary">Módulo 3 · Dibujo 2D <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><div class="logo"><div class="logo-icon">AC</div>AutoCAD Guía</div><p>Tu guía completa para dominar AutoCAD.</p></div>
+                <div class="footer-links"><h4>Aprendizaje</h4><a href="../que-es-cad.html">¿Qué es CAD?</a><a href="../interfaz.html">Interfaz</a><a href="../comandos.html">Comandos</a><a href="../dimensiones.html">Dimensiones</a></div>
+                <div class="footer-links"><h4>Práctica</h4><a href="../ejercicios.html">Ejercicios</a><a href="../glosario.html">Glosario</a><a href="../modulos.html">Módulos</a><a href="../recursos.html">Recursos</a></div>
+                <div class="footer-links"><h4>Tecnología</h4><p style="font-size:0.85rem; color:var(--text-dim);">HTML, CSS, JS, Three.js</p></div>
+            </div>
+            <div class="footer-bottom"><p>© <span data-year></span> AutoCAD Guía Completa</p></div>
+        </div>
+    </footer>
+    <button class="back-to-top" id="backToTop">↑</button>
+    <script src="../../assets/js/app.js"></script>
+    <script src="../../assets/js/dynamic-year.js"></script>
+</body>
+</html>

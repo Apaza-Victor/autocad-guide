@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoCAD Guía Completa — De Cero a Experto</title>
+    <meta name="description" content="Domina AutoCAD desde cero hasta nivel experto con nuestra guía interactiva: comandos, atajos, dimensionado, ejercicios prácticos y modelado 3D.">
+    <meta name="keywords" content="AutoCAD, guía, tutorial, comandos, atajos, CAD, dibujo técnico, dimensionado, modelado 3D">
+    <meta property="og:title" content="AutoCAD Guía Completa — De Cero a Experto">
+    <meta property="og:description" content="Comandos, atajos, ejercicios prácticos y modelado 3D. Aprende AutoCAD con nuestra guía interactiva.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/additional-styles.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cascadia+Code:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- NAV -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">AC</div>
+                AutoCAD Guía
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="pages/que-es-cad.html">¿Qué es CAD?</a></li>
+                <li><a href="pages/comandos.html">Comandos</a></li>
+                <li><a href="pages/dimensiones.html">Dimensiones</a></li>
+                <li><a href="pages/glosario.html">Glosario</a></li>
+                <li><a href="pages/modulos.html">Módulos</a></li>
+                <li><a href="pages/recursos.html">Recursos</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="pages/comandos.html" class="nav-cta">Ver Comandos <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <i class="fa-solid fa-sparkles"></i>
+                        <span class="dot"></span>
+                        Guía completa actualizada <span data-year></span>
+                    </div>
+                    <h1>Aprende AutoCAD <span>de cero a experto</span></h1>
+                    <p>Domina el diseño asistido por computadora con nuestra guía interactiva. Comandos, atajos, ejercicios prácticos y mucho más.</p>
+                    <div class="hero-actions">
+                        <a href="pages/que-es-cad.html" class="btn-primary">Empezar a aprender <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="pages/comandos.html" class="btn-secondary"><i class="fa-solid fa-terminal"></i> Ver comandos</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <i class="fa-solid fa-layer-group stat-icon"></i>
+                            <span class="number">15</span>
+                            <span class="label">Módulos completos</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fa-solid fa-terminal stat-icon"></i>
+                            <span class="number">250+</span>
+                            <span class="label">Comandos cubiertos</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fa-solid fa-keyboard stat-icon"></i>
+                            <span class="number">60+</span>
+                            <span class="label">Atajos esenciales</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fa-solid fa-pen-ruler stat-icon"></i>
+                            <span class="number">12</span>
+                            <span class="label">Ejercicios prácticos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="cube-3d" id="heroCube">
+                        <div class="cube-face cube-front"></div>
+                        <div class="cube-face cube-back"></div>
+                        <div class="cube-face cube-right"></div>
+                        <div class="cube-face cube-left"></div>
+                        <div class="cube-face cube-top"></div>
+                        <div class="cube-face cube-bottom"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- 3D VIEWPORT SECTION - Three.js -->
+    <section class="section-3d" id="viewport3d">
+        <div class="container">
+            <div class="section-label">Experiencia 3D - Three.js</div>
+            <h2 class="section-title">Explora el espacio de trabajo en 3D</h2>
+            <p class="section-desc">Interactúa con modelos tridimensionales directamente en tu navegador usando Three.js</p>
+            <div class="canvas-3d-container">
+                <canvas id="three-canvas"></canvas>
+                <div class="canvas-controls">
+                    <button class="btn-control" id="btn-reset">Reset</button>
+                    <button class="btn-control" id="btn-wireframe">Wireframe</button>
+                    <button class="btn-control" id="btn-sphere">Esfera</button>
+                    <button class="btn-control" id="btn-cube">Cubo</button>
+                    <button class="btn-control" id="btn-cylinder">Cilindro</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D BABYLON SECTION -->
+    <section class="section-3d babylon-section" id="babylon3d">
+        <div class="container">
+            <div class="section-label">AutoCAD 3D - Babylon.js</div>
+            <h2 class="section-title">Modelado 3D Interactivo</h2>
+            <p class="section-desc">Explora un modelo 3D de AutoCAD interactivo con Babylon.js. Arrastra para rotar, scroll para zoom.</p>
+            <div class="canvas-3d-container babylon-container">
+                <canvas id="babylon-canvas" touch-action="none"></canvas>
+                <div class="canvas-controls">
+                    <button class="btn-control babylon-btn" id="btn-babylon-reset">Reset Vista</button>
+                    <button class="btn-control babylon-btn" id="btn-babylon-wireframe">Wireframe</button>
+                    <button class="btn-control babylon-btn" id="btn-babylon-building">Edificio</button>
+                    <button class="btn-control babylon-btn" id="btn-babylon-machine">Máquina</button>
+                    <button class="btn-control babylon-btn" id="btn-babylon-house">Casa</button>
+                </div>
+                <div class="babylon-info">
+                    <span id="babylon-fps">60 FPS</span>
+                    <span id="babylon-vertices">0 vértices</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PATH -->
+    <section class="section-path" id="path">
+        <div class="container">
+            <div class="section-label">Ruta de aprendizaje</div>
+            <h2 class="section-title">Tu camino hacia el dominio de AutoCAD</h2>
+            <p class="section-desc">Sigue nuestra estructura progresiva para convertirte en un experto en diseño asistido por computadora.</p>
+            <div class="path-grid">
+                <div class="path-card">
+                    <div class="path-number">01</div>
+                    <div class="path-level">Básico</div>
+                    <h3>Fundamentos</h3>
+                    <p>Conoce la interfaz, herramientas básicas y conceptos esenciales de dibujo técnico.</p>
+                    <ul class="path-topics">
+                        <li>Interfaz y navegación</li>
+                        <li>Comandos de dibujo</li>
+                        <li>Selección de objetos</li>
+                        <li>Coordinadas y snap</li>
+                    </ul>
+                </div>
+                <div class="path-card">
+                    <div class="path-number">02</div>
+                    <div class="path-level">Intermedio</div>
+                    <h3>Habilidades Técnicas</h3>
+                    <p>Domina dimensionado, bloques, capas y técnicas de organización de proyectos.</p>
+                    <ul class="path-topics">
+                        <li>Dimensionado avanzado</li>
+                        <li>Bloques y referencias</li>
+                        <li>Organización por capas</li>
+                        <li>Hatch y patrones</li>
+                    </ul>
+                </div>
+                <div class="path-card">
+                    <div class="path-number">03</div>
+                    <div class="path-level">Avanzado</div>
+                    <h3>Experto en CAD</h3>
+                    <p>Modelado 3D, renders, scripts personalizados y flujos de trabajo profesionales.</p>
+                    <ul class="path-topics">
+                        <li>Modelado 3D sólidos</li>
+                        <li>Render y materiales</li>
+                        <li>Dynamic Blocks</li>
+                        <li>AutoLISP y scripts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULES PREVIEW -->
+    <section class="section-modules" id="modules">
+        <div class="container">
+            <div class="section-label">Módulos</div>
+            <h2 class="section-title">Contenido organizado por temas</h2>
+            <p class="section-desc">Explora nuestros módulos completos con teoría, ejemplos visuales y ejercicios prácticos.</p>
+            <div class="modules-grid">
+                <a href="pages/que-es-cad.html" class="module-card fade-up">
+                    <div class="module-icon"><i class="fa-solid fa-cube"></i></div>
+                    <h3>¿Qué es CAD?</h3>
+                    <p>Conceptos fundamentales del diseño asistido por computadora y versiones de AutoCAD.</p>
+                    <span class="module-tag">Fundamentos</span>
+                </a>
+                <a href="pages/interfaz.html" class="module-card fade-up">
+                    <div class="module-icon"><i class="fa-solid fa-desktop"></i></div>
+                    <h3>Interfaz de AutoCAD</h3>
+                    <p>Conoce cada parte del entorno de trabajo para navegar con confianza.</p>
+                    <span class="module-tag">Interfaz</span>
+                </a>
+                <a href="pages/comandos.html" class="module-card fade-up">
+                    <div class="module-icon"><i class="fa-solid fa-terminal"></i></div>
+                    <h3>Comandos Esenciales</h3>
+                    <p>Más de 250 comandos organizados por categoría con descripción y uso.</p>
+                    <span class="module-tag">Comandos</span>
+                </a>
+                <a href="pages/dimensiones.html" class="module-card fade-up">
+                    <div class="module-icon"><i class="fa-solid fa-ruler-combined"></i></div>
+                    <h3>Dimensionado</h3>
+                    <p>Anatomía de dimensiones, tipos, estilos y mejores prácticas.</p>
+                    <span class="module-tag">Técnico</span>
+                </a>
+                <a href="pages/ejercicios.html" class="module-card fade-up">
+                    <div class="module-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+                    <h3>Ejercicios Prácticos</h3>
+                    <p>12 ejercicios progresivos para aplicar lo aprendido.</p>
+                    <span class="module-tag">Práctica</span>
+                </a>
+                <a href="pages/glosario.html" class="module-card fade-up">
+                    <div class="module-icon"><i class="fa-solid fa-book-open"></i></div>
+                    <h3>Glosario</h3>
+                    <p>Tips y trucos, palabras con significado y comandos explicados: qué hacen y cuándo usarlos.</p>
+                    <span class="module-tag">Referencia</span>
+                </a>
+                <a href="pages/recursos.html" class="module-card fade-up">
+                    <div class="module-icon"><i class="fa-solid fa-link"></i></div>
+                    <h3>Recursos Externos</h3>
+                    <p>Enlaces a documentación oficial, cursos y comunidades.</p>
+                    <span class="module-tag">Recursos</span>
+                </a>
+            </div>
+            <div style="text-align:center; margin-top:32px;">
+                <a href="pages/modulos.html" class="btn-primary">Ver todos los módulos <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK SHORTCUTS -->
+    <section class="section-shortcuts-preview" id="shortcuts">
+        <div class="container">
+            <div class="section-label">Atajos Rápidos</div>
+            <h2 class="section-title">Los atajos que debes memorizar</h2>
+            <div class="search-container" style="max-width: 420px; margin: 0 0 24px;">
+                <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="text" class="search-input" id="homeShortcutSearch" placeholder="Buscar atajo o comando... (ej: L, REC, GIRAR)">
+            </div>
+            <div class="shortcuts-table">
+                <thead>
+                    <tr>
+                        <th>Atajo</th>
+                        <th>Comando</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="key">L</span></td><td>LÍNEA</td><td>Dibuja una línea</td></tr>
+                    <tr><td><span class="key">C</span></td><td>CÍRCULO</td><td>Dibuja un círculo</td></tr>
+                    <tr><td><span class="key">REC</span></td><td>RECTÁNGULO</td><td>Dibuja un rectángulo</td></tr>
+                    <tr><td><span class="key">RR</span></td><td>RECORTAR</td><td>Recorta objetos</td></tr>
+                    <tr><td><span class="key">M</span></td><td>DESPLAZAR</td><td>Mueve objetos</td></tr>
+                    <tr><td><span class="key">CO</span></td><td>COPIAR</td><td>Copia objetos</td></tr>
+                    <tr><td><span class="key">SI</span></td><td>SIMETRÍA</td><td>Refleja objetos</td></tr>
+                    <tr><td><span class="key">GI</span></td><td>GIRAR</td><td>Rota objetos</td></tr>
+                </tbody>
+            </div>
+            <div style="text-align:center; margin-top:24px;">
+                <a href="pages/comandos.html" class="btn-primary">Ver todos los comandos →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="content-section" id="faq" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-label">Preguntas Frecuentes</div>
+            <h2 class="section-title">Resolvemos tus dudas</h2>
+            <p class="section-desc">Las preguntas más comunes de quienes empiezan con AutoCAD.</p>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-q">¿Necesito experiencia previa para empezar? <span class="faq-icon">+</span></button>
+                    <div class="faq-a"><p>No. Nuestra ruta de aprendizaje empieza desde los fundamentos absolutos: qué es CAD, cómo es la interfaz y los primeros comandos. Solo necesitas curiosidad y constancia.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">¿AutoCAD es gratuito? <span class="faq-icon">+</span></button>
+                    <div class="faq-a"><p>AutoCAD es software comercial de pago, pero Autodesk ofrece una <strong>licencia educativa gratuita</strong> para estudiantes y docentes. También hay alternativas gratuitas como <code>LibreCAD</code> o <code>FreeCAD</code>.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">¿Cuánto tiempo se tarda en aprender AutoCAD? <span class="faq-icon">+</span></button>
+                    <div class="faq-a"><p>Con práctica constante (1-2 horas diarias) puedes dominar los fundamentos en 3-4 semanas. Llegar a un nivel profesional avanzado suele tomar de 3 a 6 meses.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">¿Cuál es la diferencia entre CAD y BIM? <span class="faq-icon">+</span></button>
+                    <div class="faq-a"><p>CAD (diseño asistido por computadora) crea geometría digital; BIM (modelado de información de construcción) añade datos inteligentes a cada elemento. AutoCAD es CAD; Revit, por ejemplo, es BIM.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">¿Qué computadora necesito para AutoCAD? <span class="faq-icon">+</span></button>
+                    <div class="faq-a"><p>Para 2D basta un equipo con 8 GB de RAM y un procesador de gama media. Para 3D y render se recomienda 16 GB o más y una tarjeta gráfica dedicada.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">¿Puedo usar AutoCAD en otro idioma? <span class="faq-icon">+</span></button>
+                    <div class="faq-a"><p>Sí. AutoCAD está disponible en muchos idiomas. Si conoces los comandos en inglés, puedes escribirlos con un guion bajo (<code>_TRIM</code>, <code>_OFFSET</code>) y funcionarán sin importar el idioma.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>¿Listo para dominar AutoCAD?</h2>
+                <p>Comienza hoy con nuestros módulos gratuitos y conviértete en experto en diseño asistido por computadora.</p>
+                <div class="hero-actions" style="justify-content: center;">
+                    <a href="pages/que-es-cad.html" class="btn-primary">Comenzar ahora <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="pages/comandos.html" class="btn-secondary"><i class="fa-solid fa-terminal"></i> Ver comandos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">AC</div>
+                        AutoCAD Guía
+                    </div>
+                    <p>Tu guía completa para dominar AutoCAD. Desde los fundamentos hasta técnicas avanzadas de modelado 3D.</p>
+                </div>
+                <div class="footer-links">
+                    <h4><i class="fa-solid fa-graduation-cap"></i> Aprendizaje</h4>
+                    <a href="pages/que-es-cad.html"><i class="fa-solid fa-cube"></i> ¿Qué es CAD?</a>
+                    <a href="pages/interfaz.html"><i class="fa-solid fa-desktop"></i> Interfaz</a>
+                    <a href="pages/comandos.html"><i class="fa-solid fa-terminal"></i> Comandos</a>
+                    <a href="pages/dimensiones.html"><i class="fa-solid fa-ruler-combined"></i> Dimensiones</a>
+                </div>
+                <div class="footer-links">
+                    <h4><i class="fa-solid fa-laptop-code"></i> Práctica</h4>
+                    <a href="pages/ejercicios.html"><i class="fa-solid fa-pen-ruler"></i> Ejercicios</a>
+                    <a href="pages/glosario.html"><i class="fa-solid fa-book-open"></i> Glosario</a>
+                    <a href="pages/modulos.html"><i class="fa-solid fa-layer-group"></i> Módulos</a>
+                    <a href="pages/recursos.html"><i class="fa-solid fa-link"></i> Recursos</a>
+                </div>
+                <div class="footer-links">
+                    <h4><i class="fa-solid fa-code"></i> Tecnología</h4>
+                    <p style="font-size:0.85rem; color:var(--text-dim);"><i class="fa-brands fa-html5"></i> HTML <i class="fa-brands fa-css3-alt"></i> CSS <i class="fa-brands fa-js"></i> JS <i class="fa-solid fa-cube"></i> Three.js <i class="fa-solid fa-dice-d6"></i> Babylon.js</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span data-year></span> AutoCAD Guía Completa — De Cero a Experto</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Babylon.js -->
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
+    
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    
+    <!-- App Scripts -->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/3d-scene.js"></script>
+    <script src="assets/js/babylon-scene.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/3d-background.js"></script>
+    <script src="assets/js/dynamic-year.js"></script>
+</body>
+</html>

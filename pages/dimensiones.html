@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimensiones y Medidas — AutoCAD Guía Completa</title>
+    <meta name="description" content="Todo sobre dimensionado en AutoCAD: anatomía de las cotas, tipos, estilos, unidades de medida, equivalencias métrico/imperial, escalas normalizadas, tamaños de papel, tolerancias y buenas prácticas.">
+    <meta property="og:title" content="Dimensiones y Medidas — AutoCAD Guía Completa">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/additional-styles.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cascadia+Code:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- NAV -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">AC</div>
+                AutoCAD Guía
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="que-es-cad.html">¿Qué es CAD?</a></li>
+                <li><a href="comandos.html">Comandos</a></li>
+                <li><a href="dimensiones.html" class="active">Dimensiones</a></li>
+                <li><a href="glosario.html">Glosario</a></li>
+                <li><a href="modulos.html">Módulos</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </button>
+            <a href="comandos.html" class="nav-cta">Ver Comandos <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <div class="container">
+            <div class="section-label">Técnico</div>
+            <h1>Dimensionado y Medidas en AutoCAD</h1>
+            <p>Todo lo que necesitas saber sobre cotas, unidades de medida, equivalencias, escalas y tolerancias para que tus planos sean precisos y profesionales.</p>
+        </div>
+    </div>
+
+    <section class="content-section">
+        <div class="container">
+
+            <!-- ANATOMÍA -->
+            <h2>Anatomía de una Dimensión</h2>
+            <p>Una cota no es un simple número: está formada por varios elementos que AutoCAD dibuja automáticamente y que puedes personalizar. Conocerlos te permite leer cualquier plano y configurar tus estilos de forma correcta.</p>
+            <div class="dim-anatomy">
+                <div class="dim-visual">
+                    <div class="dim-svg-area">
+                        <!-- SVG Dimension Illustration -->
+                        <svg width="100%" height="100%" viewBox="0 0 300 150">
+                            <!-- Extension lines -->
+                            <line x1="50" y1="100" x2="50" y2="40" stroke="#4DA3FF" stroke-width="1" stroke-dasharray="3,3"/>
+                            <line x1="250" y1="100" x2="250" y2="40" stroke="#4DA3FF" stroke-width="1" stroke-dasharray="3,3"/>
+                            <!-- Dimension line -->
+                            <line x1="55" y1="45" x2="245" y2="45" stroke="#FF7B72" stroke-width="1.5"/>
+                            <!-- Arrows -->
+                            <polygon points="55,45 62,42 62,48" fill="#FF7B72"/>
+                            <polygon points="245,45 238,42 238,48" fill="#FF7B72"/>
+                            <!-- Dimension text -->
+                            <text x="150" y="42" fill="#FF7B72" font-size="12" text-anchor="middle" font-family="monospace">200.00</text>
+                            <!-- Object line -->
+                            <line x1="50" y1="100" x2="250" y2="100" stroke="#4DA3FF" stroke-width="2"/>
+                            <!-- Origin points -->
+                            <circle cx="50" cy="100" r="3" fill="#3FB950"/>
+                            <circle cx="250" cy="100" r="3" fill="#3FB950"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="dim-anatomy-list">
+                    <div class="dim-anatomy-item">
+                        <div class="dot" style="background: #4DA3FF;"></div>
+                        <div>
+                            <h4>Líneas de Extensión</h4>
+                            <p>Líneas que conectan el objeto con la dimensión (cómo indicar qué se está midiendo).</p>
+                        </div>
+                    </div>
+                    <div class="dim-anatomy-item">
+                        <div class="dot" style="background: #FF7B72;"></div>
+                        <div>
+                            <h4>Línea de Dimensión</h4>
+                            <p>Línea principal con flechas en los extremos, paralela al objeto medido.</p>
+                        </div>
+                    </div>
+                    <div class="dim-anatomy-item">
+                        <div class="dot" style="background: #FF7B72;"></div>
+                        <div>
+                            <h4>Texto de Dimensión</h4>
+                            <p>El valor numérico de la medida; su formato depende del estilo (decimales, fracciones, unidad).</p>
+                        </div>
+                    </div>
+                    <div class="dim-anatomy-item">
+                        <div class="dot" style="background: #3FB950;"></div>
+                        <div>
+                            <h4>Puntos de Origen</h4>
+                            <p>Puntos de amarre en el objeto medido; se definen con referencia a objetos (OSNAP).</p>
+                        </div>
+                    </div>
+                    <div class="dim-anatomy-item">
+                        <div class="dot" style="background: #E8751A;"></div>
+                        <div>
+                            <h4>Flechas (Terminadores)</h4>
+                            <p>Marcan los extremos de la línea de dimensión; pueden ser flechas, trazos, puntos o círculos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TIPOS DE DIMENSIÓN -->
+            <h2 style="margin-top: 60px;">Tipos de Dimensión</h2>
+            <p>AutoCAD dispone de un comando inteligente (<code>DIMENSIONAR</code>, alias <code>DI</code>) que detecta automáticamente el tipo de cota según el objeto que señalas, además de variantes específicas para cada caso.</p>
+            <div class="dim-layout">
+                <div class="dim-group">
+                    <div class="dim-group-header"><i class="fa-solid fa-ruler"></i> Lineales</div>
+                    <div class="command-list">
+                        <div class="command-item"><span class="cmd-name">DIMENSIONAR</span><span class="cmd-desc">Inteligente - detecta tipo automáticamente</span></div>
+                        <div class="command-item"><span class="cmd-name">DIMENSIONAR LINEAL</span><span class="cmd-desc">Horizontal o vertical (distancia recta)</span></div>
+                        <div class="command-item"><span class="cmd-name">DIMENSIONAR ALINEADO</span><span class="cmd-desc">Paralela al objeto (mide el largo real)</span></div>
+                        <div class="command-item"><span class="cmd-name">DIMENSIONAR BASE</span><span class="cmd-desc">Varias cotas desde una línea base común</span></div>
+                        <div class="command-item"><span class="cmd-name">DIMENSIONAR CONTINUO</span><span class="cmd-desc">Cadena de cotas una tras otra</span></div>
+                    </div>
+                </div>
+                <div class="dim-group">
+                    <div class="dim-group-header"><i class="fa-solid fa-circle"></i> Radiales y Angulares</div>
+                    <div class="command-list">
+                        <div class="command-item"><span class="cmd-name">DIMENSIONAR RADIO</span><span class="cmd-desc">Mide radio de arco/círculo (R)</span></div>
+                        <div class="command-item"><span class="cmd-name">DIMENSIONAR DIÁMETRO</span><span class="cmd-desc">Mide diámetro de arco/círculo (Ø)</span></div>
+                        <div class="command-item"><span class="cmd-name">DIMENSIONAR ÁNGULO</span><span class="cmd-desc">Mide ángulo entre líneas o arco</span></div>
+                        <div class="command-item"><span class="cmd-name">DIMENSIONAR ARCO</span><span class="cmd-desc">Longitud de un arco</span></div>
+                        <div class="command-item"><span class="cmd-name">DIMENSIONAR ORDENADA</span><span class="cmd-desc">Coordenadas X/Y de un punto (datums)</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout" style="margin-top: 28px;">
+                <h4><i class="fa-solid fa-circle-info"></i> ¿Cuándo usar cada tipo?</h4>
+                <p><strong>Lineal:</strong> distancias horizontales o verticales. <strong>Alineada:</strong> la medida real de un muro o borde inclinado. <strong>Base:</strong> cuando todas las cotas parten de un mismo punto de referencia. <strong>Continua:</strong> para sumar segmentos consecutivos. <strong>Radio/Diámetro:</strong> siempre en círculos y arcos (Ø o R antepuesto). <strong>Ángulo:</strong> inclinaciones entre líneas. <strong>Ordenada:</strong> fabricación CNC o posicionamiento de taladros respecto a un datum.</p>
+            </div>
+
+            <!-- ESTILOS DE DIMENSIÓN -->
+            <h2 style="margin-top: 60px;">Estilos de Dimensión</h2>
+            <p>Un estilo controla la apariencia de todas las cotas a la vez: flechas, texto, color, precisión y unidades. Personaliza uno solo y aplícalo a todo el proyecto para mantener consistencia.</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Propiedad</th>
+                        <th>Comando</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Estilo actual</td><td><span class="cmd-name">ESTILO DIMENSIÓN</span></td><td>Abre el Administrador de Estilos de Dimensión (crear, modificar, comparar)</td></tr>
+                    <tr><td>Escala general</td><td><span class="cmd-name">ESCALA DIMENSIÓN</span></td><td>Factor global que escala todos los elementos de la cota</td></tr>
+                    <tr><td>Color y grosor</td><td><span class="cmd-name">COLOR TEXTO / LÍNEA</span></td><td>Color de texto, líneas de extensión y línea de dimensión</td></tr>
+                    <tr><td>Tipo de flecha</td><td><span class="cmd-name">BLOQUE FLECHA</span></td><td>Forma de los terminadores: flecha, trazo, punto, círculo, personalizado</td></tr>
+                    <tr><td>Precisión</td><td><span class="cmd-name">DECIMALES</span></td><td>Número de decimales o denominador de fracción</td></tr>
+                    <tr><td>Altura texto</td><td><span class="cmd-name">ALTURA TEXTO</span></td><td>Tamaño del texto de la cota</td></tr>
+                    <tr><td>Unidades</td><td><span class="cmd-name">FORMATO UNIDADES</span></td><td>Decimal, fraccionario, pies-pulgadas, etc.</td></tr>
+                    <tr><td>Tolerancias</td><td><span class="cmd-name">TOLERANCIA</span></td><td>Muestra desviaciones (±, límites, etc.) en el texto</td></tr>
+                    <tr><td>Redondeo</td><td><span class="cmd-name">REDONDEO</span></td><td>Redondea el valor medido a un incremento definido</td></tr>
+                    <tr><td>Separador decimal</td><td><span class="cmd-name">SEPARADOR</span></td><td>Punto o coma para separar decimales</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout" style="margin-top: 40px;">
+                <h4><i class="fa-solid fa-lightbulb"></i> Mejores Prácticas de Estilo</h4>
+                <p>1. Crea un estilo de dimensión personalizado al inicio del proyecto. 2. Usa <code>DIMENSIONAR</code> (inteligente) para la mayoría de casos. 3. Mantén consistencia en la escala y apariencia. 4. Para planos que se imprimirán a varias escalas, usa cotas <strong>Annotative</strong>.</p>
+            </div>
+
+            <!-- UNIDADES Y SISTEMAS -->
+            <h2 style="margin-top: 60px;">Unidades y Sistemas de Medida</h2>
+            <p>Antes de dibujar debes decidir en qué unidades trabajará tu dibujo. AutoCAD no "sabe" si dibujas en milímetros, centímetros o pulgadas: la unidad de dibujo es un número abstracto y el significado se lo das tú (o se lo asignas al imprimir). Configúralo con el comando <code>UNIDADES</code> (o <code>DWGUNITS</code>).</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Sistema</th>
+                        <th>Formato</th>
+                        <th>Ejemplo de entrada</th>
+                        <th>Cuándo usarlo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Decimal</td><td>Métrico (mm, cm, m)</td><td><code>12.5</code></td><td>El más común; recomendado para la mayoría de proyectos en Latinoamérica y Europa.</td></tr>
+                    <tr><td>Pulgadas decimales</td><td>Imperial decimal</td><td><code>1.5</code></td><td>Trabajo en pulgadas sin fracciones (mecánica simple).</td></tr>
+                    <tr><td>Fraccional</td><td>Pulgadas con fracciones</td><td><code>1 1/2</code></td><td>Carpintería y construcción en países anglosajones.</td></tr>
+                    <tr><td>Ingenieril</td><td>Pies + pulgadas decimales</td><td><code>1'2.5"</code></td><td>Ingeniería civil en Estados Unidos.</td></tr>
+                    <tr><td>Arquitectónico</td><td>Pies + pulgadas fraccionarias</td><td><code>1'2 1/2"</code></td><td>Arquitectura en Estados Unidos.</td></tr>
+                    <tr><td>Científico</td><td>Notación exponencial</td><td><code>1.2E+3</code></td><td>Cálculos con valores extremadamente grandes o pequeños.</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout warning" style="margin-top: 28px;">
+                <h4><i class="fa-solid fa-triangle-exclamation"></i> Aviso importante sobre unidades</h4>
+                <p>No mezcles sistemas en un mismo dibujo. Si dibujas un muro como "3000" y otro compañero lo interpreta como pulgadas, el proyecto fallará. Define el estándar del proyecto desde el inicio y verifícalo con <code>UNIDADES</code> antes de empezar.</p>
+            </div>
+
+            <!-- EQUIVALENCIAS -->
+            <h2 style="margin-top: 60px;">Equivalencias de Medidas</h2>
+            <p>Tablas rápidas de conversión entre el sistema métrico y el sistema imperial para pasar de un estándar a otro sin errores.</p>
+
+            <h3>Unidades métricas entre sí</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Unidad</th><th>Símbolo</th><th>Equivalencia</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Kilómetro</td><td>km</td><td>1 km = 1 000 m = 100 000 cm = 1 000 000 mm</td></tr>
+                    <tr><td>Metro</td><td>m</td><td>1 m = 100 cm = 1 000 mm</td></tr>
+                    <tr><td>Centímetro</td><td>cm</td><td>1 cm = 10 mm</td></tr>
+                    <tr><td>Milímetro</td><td>mm</td><td>Unidad base más usada en dibujo técnico y mecánico</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Unidades imperiales entre sí</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Unidad</th><th>Símbolo</th><th>Equivalencia</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Milla</td><td>mi</td><td>1 mi = 1760 yd = 5280 ft</td></tr>
+                    <tr><td>Yarda</td><td>yd</td><td>1 yd = 3 ft = 36 in</td></tr>
+                    <tr><td>Pie</td><td>ft (' )</td><td>1 ft = 12 in</td></tr>
+                    <tr><td>Pulgada</td><td>in (")</td><td>Unidad base del sistema imperial</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Conversión métrico ↔ imperial</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>De</th><th>A</th><th>Factor</th><th>Ejemplo</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1 pulgada (in)</td><td>milímetros</td><td>1 in = 25.4 mm</td><td>2 in = 50.8 mm</td></tr>
+                    <tr><td>1 milímetro</td><td>pulgadas</td><td>1 mm = 0.0394 in</td><td>100 mm = 3.937 in</td></tr>
+                    <tr><td>1 pie (ft)</td><td>metros</td><td>1 ft = 0.3048 m</td><td>10 ft = 3.048 m</td></tr>
+                    <tr><td>1 metro</td><td>pies</td><td>1 m = 3.2808 ft</td><td>5 m = 16.404 ft</td></tr>
+                    <tr><td>1 yarda (yd)</td><td>metros</td><td>1 yd = 0.9144 m</td><td>3 yd = 2.7432 m</td></tr>
+                    <tr><td>1 kilómetro</td><td>millas</td><td>1 km = 0.6214 mi</td><td>10 km = 6.214 mi</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Fracciones de pulgada y su valor decimal/mm</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Fracción</th><th>Decimal (in)</th><th>Milímetros</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1/2"</td><td>0.5000</td><td>12.700 mm</td></tr>
+                    <tr><td>1/4"</td><td>0.2500</td><td>6.350 mm</td></tr>
+                    <tr><td>1/8"</td><td>0.1250</td><td>3.175 mm</td></tr>
+                    <tr><td>1/16"</td><td>0.0625</td><td>1.588 mm</td></tr>
+                    <tr><td>1/32"</td><td>0.0313</td><td>0.794 mm</td></tr>
+                    <tr><td>1/64"</td><td>0.0156</td><td>0.397 mm</td></tr>
+                    <tr><td>3/4"</td><td>0.7500</td><td>19.050 mm</td></tr>
+                    <tr><td>3/8"</td><td>0.3750</td><td>9.525 mm</td></tr>
+                    <tr><td>5/8"</td><td>0.6250</td><td>15.875 mm</td></tr>
+                    <tr><td>7/8"</td><td>0.8750</td><td>22.225 mm</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout" style="margin-top: 28px;">
+                <h4><i class="fa-solid fa-calculator"></i> Fórmulas clave de memoria</h4>
+                <p>1 pulgada = <strong>25.4 mm</strong> · 1 pie = <strong>304.8 mm</strong> · 1 m ≈ <strong>39.37 in</strong> · 1 m ≈ <strong>3.28 ft</strong>. Con estas cuatro cifras resuelves casi cualquier conversión en obra o en el taller.</p>
+            </div>
+
+            <!-- SÍMBOLOS -->
+            <h2 style="margin-top: 60px;">Tabla de Símbolos de Medida</h2>
+            <p>Si estás aprendiendo, esta tabla te enseña qué significa cada símbolo que verás en un plano, en la línea de comandos o en una especificación técnica. Aprende el símbolo, su nombre completo y para qué sirve; así nunca más te confundirás entre mm, cm y m, ni entre voltios y vatios.</p>
+
+            <h3>Prefijos del Sistema Internacional (SI)</h3>
+            <p>Conocer los prefijos es la clave para entender <em>cualquier</em> unidad métrica: se anteponen a la unidad base para multiplicarla o dividirla.</p>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Prefijo</th><th>Símbolo</th><th>Factor</th><th>Ejemplo</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Tera</td><td><span class="key">T</span></td><td>× 10¹² (1 000 000 000 000)</td><td>TB (terabyte)</td></tr>
+                    <tr><td>Giga</td><td><span class="key">G</span></td><td>× 10⁹ (1 000 000 000)</td><td>GHz (gigahercio)</td></tr>
+                    <tr><td>Mega</td><td><span class="key">M</span></td><td>× 10⁶ (1 000 000)</td><td>MPa (megapascal)</td></tr>
+                    <tr><td>Kilo</td><td><span class="key">k</span></td><td>× 10³ (1 000)</td><td>km, kg, kW (kilovatio)</td></tr>
+                    <tr><td>Hecto</td><td><span class="key">h</span></td><td>× 10² (100)</td><td>ha (hectárea)</td></tr>
+                    <tr><td>Deca</td><td><span class="key">da</span></td><td>× 10 (10)</td><td>dam (decámetro)</td></tr>
+                    <tr><td>Deci</td><td><span class="key">d</span></td><td>× 0.1 (1/10)</td><td>dm (decímetro)</td></tr>
+                    <tr><td>Centi</td><td><span class="key">c</span></td><td>× 0.01 (1/100)</td><td>cm (centímetro)</td></tr>
+                    <tr><td>Mili</td><td><span class="key">m</span></td><td>× 0.001 (1/1000)</td><td>mm, ml (mililitro)</td></tr>
+                    <tr><td>Micro</td><td><span class="key">µ</span></td><td>× 10⁻⁶ (1/1 000 000)</td><td>µm (micrómetro), µF (microfaradio)</td></tr>
+                    <tr><td>Nano</td><td><span class="key">n</span></td><td>× 10⁻⁹</td><td>nm (nanómetro)</td></tr>
+                    <tr><td>Pico</td><td><span class="key">p</span></td><td>× 10⁻¹²</td><td>pF (picofaradio)</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Símbolos de longitud</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Nombre</th><th>Valor</th><th>Para qué se usa</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="key">nm</span></td><td>Nanómetro</td><td>0.000000001 m</td><td>Escala microscópica, longitudes de onda de la luz.</td></tr>
+                    <tr><td><span class="key">µm</span></td><td>Micrómetro (micra)</td><td>0.000001 m</td><td>Tolerancias de precisión en mecanizado de alta exactitud.</td></tr>
+                    <tr><td><span class="key">mm</span></td><td>Milímetro</td><td>0.001 m</td><td>La unidad de dibujo más común en AutoCAD: espesores de muro, piezas mecánicas, tornillos.</td></tr>
+                    <tr><td><span class="key">cm</span></td><td>Centímetro</td><td>0.01 m</td><td>Mobiliario, elementos pequeños, tareas escolares.</td></tr>
+                    <tr><td><span class="key">dm</span></td><td>Decímetro</td><td>0.1 m</td><td>Poco usado en planos; útil en laboratorio.</td></tr>
+                    <tr><td><span class="key">m</span></td><td>Metro</td><td>Unidad base</td><td>Dimensiones de espacios, fachadas, alturas y distancias.</td></tr>
+                    <tr><td><span class="key">dam</span></td><td>Decámetro</td><td>10 m</td><td>Terrenos pequeños, parcelas.</td></tr>
+                    <tr><td><span class="key">hm</span></td><td>Hectómetro</td><td>100 m</td><td>Distancias en planos de conjunto.</td></tr>
+                    <tr><td><span class="key">km</span></td><td>Kilómetro</td><td>1000 m</td><td>Carreteras, trazados de línea, mapas y topografía.</td></tr>
+                    <tr><td><span class="key">in (")</span></td><td>Pulgada</td><td>25.4 mm</td><td>Sistema imperial: tuberías, pantallas, piezas americanas.</td></tr>
+                    <tr><td><span class="key">ft (')</span></td><td>Pie</td><td>304.8 mm</td><td>Alturas de pisos y construcciones en EE.UU.</td></tr>
+                    <tr><td><span class="key">yd</span></td><td>Yarda</td><td>914.4 mm</td><td>Distancias en deportes y terreno en países anglosajones.</td></tr>
+                    <tr><td><span class="key">mi</span></td><td>Milla</td><td>1609.34 m</td><td>Distancias largas en carretera (EE.UU. y Reino Unido).</td></tr>
+                    <tr><td><span class="key">nmi</span></td><td>Milla náutica</td><td>1852 m</td><td>Navegación marítima y aérea.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Símbolos de área</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Nombre</th><th>Valor</th><th>Para qué se usa</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="key">mm²</span></td><td>Milímetro cuadrado</td><td>0.000001 m²</td><td>Secciones de cables, áreas de piezas pequeñas.</td></tr>
+                    <tr><td><span class="key">cm²</span></td><td>Centímetro cuadrado</td><td>0.0001 m²</td><td>Áreas pequeñas, materiales.</td></tr>
+                    <tr><td><span class="key">m²</span></td><td>Metro cuadrado</td><td>Unidad base</td><td>La más importante en obra: superficies de viviendas, locales, terrenos.</td></tr>
+                    <tr><td><span class="key">ha</span></td><td>Hectárea</td><td>10 000 m²</td><td>Terrenos, cultivos, parcelas grandes.</td></tr>
+                    <tr><td><span class="key">km²</span></td><td>Kilómetro cuadrado</td><td>1 000 000 m²</td><td>Ciudades, regiones, cartografía.</td></tr>
+                    <tr><td><span class="key">ft²</span></td><td>Pie cuadrado</td><td>0.0929 m²</td><td>Áreas inmobiliarias en EE.UU.</td></tr>
+                    <tr><td><span class="key">ac</span></td><td>Acre</td><td>4046.86 m²</td><td>Terrenos agrícolas en países anglosajones.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Símbolos de volumen y capacidad</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Nombre</th><th>Valor</th><th>Para qué se usa</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="key">mm³</span></td><td>Milímetro cúbico</td><td>0.000000001 m³</td><td>Volúmenes de piezas de precisión.</td></tr>
+                    <tr><td><span class="key">cm³</span></td><td>Centímetro cúbico</td><td>0.000001 m³</td><td>Volúmenes pequeños; equivale a 1 ml.</td></tr>
+                    <tr><td><span class="key">m³</span></td><td>Metro cúbico</td><td>Unidad base</td><td>Volumen de excavaciones, concreto, cisternas.</td></tr>
+                    <tr><td><span class="key">ml</span></td><td>Mililitro</td><td>1 cm³</td><td>Líquidos en pequeña cantidad.</td></tr>
+                    <tr><td><span class="key">L</span></td><td>Litro</td><td>1000 cm³</td><td>Capacidad de tanques y recipientes.</td></tr>
+                    <tr><td><span class="key">hL</span></td><td>Hectolitro</td><td>100 L</td><td>Producción de cerveza, vino y granos.</td></tr>
+                    <tr><td><span class="key">gal</span></td><td>Galón (US)</td><td>3.785 L</td><td>Combustible y líquidos en EE.UU. (gal imperial = 4.546 L).</td></tr>
+                    <tr><td><span class="key">qt</span></td><td>Cuarto</td><td>0.946 L</td><td>Líquidos en la cocina y el taller (1/4 de galón).</td></tr>
+                    <tr><td><span class="key">bbl</span></td><td>Barril</td><td>158.987 L</td><td>Petróleo: se habla de "barriles de crudo".</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Símbolos de masa y peso</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Nombre</th><th>Valor</th><th>Para qué se usa</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="key">mg</span></td><td>Miligramo</td><td>0.001 g</td><td>Medicamentos, química.</td></tr>
+                    <tr><td><span class="key">g</span></td><td>Gramo</td><td>0.001 kg</td><td>Pesos pequeños, alimentos.</td></tr>
+                    <tr><td><span class="key">kg</span></td><td>Kilogramo</td><td>Unidad base</td><td>Cargas de uso diario: materiales, personas, máquinas.</td></tr>
+                    <tr><td><span class="key">t</span></td><td>Tonelada métrica</td><td>1000 kg</td><td>Estructuras, camiones, producción industrial.</td></tr>
+                    <tr><td><span class="key">oz</span></td><td>Onza</td><td>28.35 g</td><td>Pesos en cocina y productos de EE.UU.</td></tr>
+                    <tr><td><span class="key">lb</span></td><td>Libra</td><td>453.59 g</td><td>Pesos corporales y mercancía en países anglosajones.</td></tr>
+                    <tr><td><span class="key">st</span></td><td>Stone</td><td>6.35 kg</td><td>Peso corporal en Reino Unido e Irlanda.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Símbolos de tiempo</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Nombre</th><th>Valor</th><th>Para qué se usa</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="key">ms</span></td><td>Milisegundo</td><td>0.001 s</td><td>Animaciones, electrónica, rendimiento.</td></tr>
+                    <tr><td><span class="key">s</span></td><td>Segundo</td><td>Unidad base</td><td>Tiempo estándar en cálculos técnicos.</td></tr>
+                    <tr><td><span class="key">min</span></td><td>Minuto</td><td>60 s</td><td>Duración de tareas y procesos.</td></tr>
+                    <tr><td><span class="key">h</span></td><td>Hora</td><td>3600 s</td><td>Jornadas, cronogramas de obra, horas-hombre.</td></tr>
+                    <tr><td><span class="key">d</span></td><td>Día</td><td>86 400 s</td><td>Plazos de entrega y planificación.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Símbolos de ángulos</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Nombre</th><th>Valor</th><th>Para qué se usa</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="key">°</span></td><td>Grado</td><td>1/360 del círculo</td><td>El más usado en planos: <code>45°</code>, <code>90°</code>.</td></tr>
+                    <tr><td><span class="key">'</span></td><td>Minuto de arco</td><td>1/60 de grado</td><td>Ángulos muy precisos en topografía: <code>22°30'</code>.</td></tr>
+                    <tr><td><span class="key">"</span></td><td>Segundo de arco</td><td>1/3600 de grado</td><td>Precisión extrema: <code>22°30'15"</code>.</td></tr>
+                    <tr><td><span class="key">rad</span></td><td>Radián</td><td>≈ 57.3°</td><td>Uso matemático y programación (AutoLISP usa radianes).</td></tr>
+                    <tr><td><span class="key">gon</span></td><td>Gradián (centesimal)</td><td>1/400 del círculo</td><td>Topografía en algunos países europeos: 400 gon = círculo completo.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Símbolos de temperatura</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Nombre</th><th>Referencia</th><th>Para qué se usa</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="key">K</span></td><td>Kelvin</td><td>0 K = −273.15 °C</td><td>Unidad científica base (sin grados, solo "K").</td></tr>
+                    <tr><td><span class="key">°C</span></td><td>Grado Celsius</td><td>0 °C hielo, 100 °C ebullición</td><td>Temperatura ambiental y técnica en el mundo métrico.</td></tr>
+                    <tr><td><span class="key">°F</span></td><td>Grado Fahrenheit</td><td>32 °F hielo, 212 °F ebullición</td><td>Clima y especificaciones en EE.UU.</td></tr>
+                    <tr><td><span class="key">°R</span></td><td>Rankine</td><td>0 °R = −273.15 °C</td><td>Termodinámica en países anglosajones.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Símbolos de velocidad</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Nombre</th><th>Valor</th><th>Para qué se usa</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="key">m/s</span></td><td>Metro por segundo</td><td>Unidad base</td><td>Velocidades técnicas y mecánicas.</td></tr>
+                    <tr><td><span class="key">km/h</span></td><td>Kilómetro por hora</td><td>1 m/s = 3.6 km/h</td><td>Vehículos y tráfico en el mundo métrico.</td></tr>
+                    <tr><td><span class="key">mph</span></td><td>Milla por hora</td><td>1 mph = 1.609 km/h</td><td>Velocidades en EE.UU. y Reino Unido.</td></tr>
+                    <tr><td><span class="key">kn</span></td><td>Nudo</td><td>1 kn = 1.852 km/h</td><td>Velocidad de barcos y aviones.</td></tr>
+                    <tr><td><span class="key">rpm (r/min)</span></td><td>Revoluciones por minuto</td><td>—</td><td>Velocidad de giro de motores y ejes.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Símbolos de fuerza</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Nombre</th><th>Valor</th><th>Para qué se usa</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="key">N</span></td><td>Newton</td><td>Unidad base</td><td>Fuerzas y pesos en ingeniería: empujes, tracciones.</td></tr>
+                    <tr><td><span class="key">kN</span></td><td>Kilonewton</td><td>1000 N</td><td>Cargas estructurales: peso de losas, vigas, columnas.</td></tr>
+                    <tr><td><span class="key">kgf</span></td><td>Kilogramo-fuerza</td><td>9.81 N</td><td>Fuerza que ejerce 1 kg de masa (uso cotidiano).</td></tr>
+                    <tr><td><span class="key">lbf</span></td><td>Libra-fuerza</td><td>4.448 N</td><td>Fuerzas en el sistema imperial.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Símbolos de presión</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Nombre</th><th>Valor</th><th>Para qué se usa</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="key">Pa</span></td><td>Pascal</td><td>1 N/m²</td><td>Unidad base de presión (valores pequeños).</td></tr>
+                    <tr><td><span class="key">kPa</span></td><td>Kilopascal</td><td>1000 Pa</td><td>Presiones de gases y hormigón.</td></tr>
+                    <tr><td><span class="key">MPa</span></td><td>Megapascal</td><td>1 000 000 Pa</td><td>Resistencia de materiales: hormigón (≈25 MPa), acero.</td></tr>
+                    <tr><td><span class="key">bar</span></td><td>Bar</td><td>100 000 Pa</td><td>Presión en instalaciones hidráulicas y neumáticas.</td></tr>
+                    <tr><td><span class="key">atm</span></td><td>Atmósfera</td><td>101 325 Pa</td><td>Presión al nivel del mar; referencia científica.</td></tr>
+                    <tr><td><span class="key">psi</span></td><td>Libra por pulgada²</td><td>6894.76 Pa</td><td>Presión de llantas y sistemas en EE.UU.</td></tr>
+                    <tr><td><span class="key">mmHg</span></td><td>Milímetro de mercurio</td><td>133.32 Pa</td><td>Presión arterial y vacío.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Símbolos de energía y trabajo</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Nombre</th><th>Valor</th><th>Para qué se usa</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="key">J</span></td><td>Julio</td><td>Unidad base</td><td>Energía y trabajo: 1 J = 1 N × 1 m.</td></tr>
+                    <tr><td><span class="key">kJ</span></td><td>Kilojulio</td><td>1000 J</td><td>Energía en alimentos y procesos.</td></tr>
+                    <tr><td><span class="key">MJ</span></td><td>Megajulio</td><td>1 000 000 J</td><td>Consumo energético de instalaciones.</td></tr>
+                    <tr><td><span class="key">Wh</span></td><td>Vatio-hora</td><td>3600 J</td><td>Energía eléctrica en equipos.</td></tr>
+                    <tr><td><span class="key">kWh</span></td><td>Kilovatio-hora</td><td>3 600 000 J</td><td>La unidad de tu factura de electricidad.</td></tr>
+                    <tr><td><span class="key">cal</span></td><td>Caloría</td><td>4.184 J</td><td>Energía térmica y alimentaria.</td></tr>
+                    <tr><td><span class="key">BTU</span></td><td>Unidad térmica británica</td><td>1055 J</td><td>Capacidad de aire acondicionado y calefacción.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Símbolos de potencia</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Nombre</th><th>Valor</th><th>Para qué se usa</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="key">W</span></td><td>Vatio</td><td>1 J/s</td><td>Potencia de aparatos y consumo instantáneo.</td></tr>
+                    <tr><td><span class="key">kW</span></td><td>Kilovatio</td><td>1000 W</td><td>Potencia de motores y calefactores.</td></tr>
+                    <tr><td><span class="key">MW</span></td><td>Megavatio</td><td>1 000 000 W</td><td>Plantas de generación eléctrica.</td></tr>
+                    <tr><td><span class="key">CV / hp</span></td><td>Caballo de vapor / de fuerza</td><td>≈ 735.5 W / 745.7 W</td><td>Potencia de motores de autos y maquinaria.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Símbolos de electricidad</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Nombre</th><th>Valor</th><th>Para qué se usa</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="key">A</span></td><td>Amperio</td><td>Unidad base</td><td>Intensidad de corriente eléctrica.</td></tr>
+                    <tr><td><span class="key">mA</span></td><td>Miliamperio</td><td>0.001 A</td><td>Corrientes pequeñas: electrónica, sensores.</td></tr>
+                    <tr><td><span class="key">V</span></td><td>Voltio</td><td>Unidad base</td><td>Diferencia de potencial: 220 V, 110 V.</td></tr>
+                    <tr><td><span class="key">kV</span></td><td>Kilovoltio</td><td>1000 V</td><td>Líneas de alta tensión (13.2 kV, 110 kV).</td></tr>
+                    <tr><td><span class="key">Ω</span></td><td>Ohmio</td><td>Unidad base</td><td>Resistencia eléctrica.</td></tr>
+                    <tr><td><span class="key">W</span></td><td>Vatio (eléctrico)</td><td>V × A</td><td>Potencia consumida: focos, electrodomésticos.</td></tr>
+                    <tr><td><span class="key">kVA</span></td><td>Kilovoltio-amperio</td><td>1000 VA</td><td>Potencia aparente de transformadores.</td></tr>
+                    <tr><td><span class="key">Hz</span></td><td>Hercio</td><td>1 ciclo/s</td><td>Frecuencia de la red: 50 Hz (60 Hz en EE.UU.).</td></tr>
+                    <tr><td><span class="key">kHz</span></td><td>Kilohercio</td><td>1000 Hz</td><td>Audio y señales.</td></tr>
+                    <tr><td><span class="key">MHz</span></td><td>Megahercio</td><td>1 000 000 Hz</td><td>Radio y procesadores.</td></tr>
+                    <tr><td><span class="key">GHz</span></td><td>Gigahercio</td><td>1 000 000 000 Hz</td><td>Procesadores y microondas.</td></tr>
+                    <tr><td><span class="key">F</span></td><td>Faradio</td><td>Unidad base</td><td>Capacidad de condensadores (µF, pF en la práctica).</td></tr>
+                    <tr><td><span class="key">C</span></td><td>Coulomb</td><td>Unidad base</td><td>Carga eléctrica.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Símbolos de densidad y flujo</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Nombre</th><th>Valor</th><th>Para qué se usa</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="key">kg/m³</span></td><td>Kilogramo por metro cúbico</td><td>Unidad base</td><td>Densidad: el agua = 1000 kg/m³.</td></tr>
+                    <tr><td><span class="key">g/cm³</span></td><td>Gramo por centímetro cúbico</td><td>1000 kg/m³</td><td>Densidad de metales: acero ≈ 7.8 g/cm³.</td></tr>
+                    <tr><td><span class="key">L/s · m³/h</span></td><td>Caudal</td><td>—</td><td>Flujo de agua: bombas, tuberías, riego.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Símbolos técnicos y matemáticos que verás en los planos</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Símbolo</th><th>Nombre</th><th>Significado</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="key">Ø / ⌀</span></td><td>Diámetro</td><td>Indica que la medida es un diámetro: <code>Ø50</code> = círculo de 50 mm.</td></tr>
+                    <tr><td><span class="key">R</span></td><td>Radio</td><td>Indica que la medida es un radio: <code>R10</code> = radio de 10 mm.</td></tr>
+                    <tr><td><span class="key">±</span></td><td>Más/menos</td><td>Tolerancia simétrica: <code>50 ± 0.05</code> = entre 49.95 y 50.05.</td></tr>
+                    <tr><td><span class="key">×</span></td><td>Por</td><td>Dimensiones compuestas: <code>100 × 50</code> = largo por ancho.</td></tr>
+                    <tr><td><span class="key">∟</span></td><td>Ángulo recto</td><td>Indica un ángulo de 90° (escuadra).</td></tr>
+                    <tr><td><span class="key">⊥</span></td><td>Perpendicular</td><td>Indica perpendicularidad entre elementos.</td></tr>
+                    <tr><td><span class="key">∥</span></td><td>Paralelo</td><td>Indica paralelismo entre líneas o superficies.</td></tr>
+                    <tr><td><span class="key">∠</span></td><td>Ángulo</td><td>Notación genérica de ángulo: <code>∠ABC</code>.</td></tr>
+                    <tr><td><span class="key">⌒</span></td><td>Arco</td><td>Indica un arco o segmento curvo en geometría.</td></tr>
+                    <tr><td><span class="key">~</span></td><td>Aproximado</td><td>Medida aproximada, sin tolerancia estricta: <code>~300 mm</code>.</td></tr>
+                    <tr><td><span class="key">≈</span></td><td>Aproximadamente igual</td><td><code>3.14 ≈ π</code>. Similar a <code>~</code>.</td></tr>
+                    <tr><td><span class="key">≠</span></td><td>No igual</td><td>Indica que dos valores no son iguales.</td></tr>
+                    <tr><td><span class="key">≤ ≥</span></td><td>Menor/Mayor o igual</td><td>Tolerancias y rangos: <code>0 ≤ x ≤ 100</code>.</td></tr>
+                    <tr><td><span class="key">%</span></td><td>Por ciento</td><td>Pendientes y proporciones: <code>2%</code> de pendiente.</td></tr>
+                    <tr><td><span class="key">‰</span></td><td>Por mil</td><td>Pendientes muy pequeñas en topografía.</td></tr>
+                    <tr><td><span class="key">∞</span></td><td>Infinito</td><td>Sin límite; en planos, tolerancias amplias.</td></tr>
+                    <tr><td><span class="key">π</span></td><td>Pi</td><td>≈ 3.14159. Relación entre circunferencia y diámetro.</td></tr>
+                    <tr><td><span class="key">√</span></td><td>Raíz cuadrada</td><td>Operación matemática: <code>√2</code> ≈ 1.414 (proporción serie A).</td></tr>
+                    <tr><td><span class="key">L</span></td><td>Longitud</td><td>Abreviatura de longitud (en ejes de simetría o tramos).</td></tr>
+                    <tr><td><span class="key">h</span></td><td>Altura</td><td>Altura total: <code>h = 2.70 m</code>.</td></tr>
+                    <tr><td><span class="key">e</span></td><td>Espesor</td><td>Espesor de elementos: <code>e = 15 cm</code> de muro.</td></tr>
+                    <tr><td><span class="key">#</span></td><td>Número</td><td>Se usa para calibres o piezas: <code>#6</code>, <code>M8</code>.</td></tr>
+                    <tr><td><span class="key">M</span></td><td>Rosca métrica</td><td>Roscas de tornillos: <code>M8</code> = tornillo métrico de 8 mm.</td></tr>
+                    <tr><td><span class="key">D / d</span></td><td>Diámetro externo/interno</td><td>Distinguir el diámetro mayor (D) del menor (d) en tuberías.</td></tr>
+                    <tr><td><span class="key">NPT / NPTF</span></td><td>Rosca americana</td><td>Roscas cónicas de tubería en sistema imperial.</td></tr>
+                    <tr><td><span class="key">×</span></td><td>Rosca paso</td><td>En tornillos: <code>M10 × 1.5</code> = paso de 1.5 mm.</td></tr>
+                    <tr><td><span class="key">SM / ZM</span></td><td>Sitio móvil / zona de montaje</td><td>Abreviaturas de instalaciones en planos.</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout" style="margin-top: 28px;">
+                <h4><i class="fa-solid fa-graduation-cap"></i> Cómo recordar las unidades métricas</h4>
+                <p>Del más pequeño al más grande: <strong>mm → cm → m → km</strong>. Cada paso hacia la derecha multiplica por 10, 100 o 1000. Ejemplo: <code>1 m = 100 cm = 1000 mm</code>. Los prefijos SI se aplican a cualquier unidad: kilo (×1000), mili (÷1000), mega (×1 000 000). Para convertir en AutoCAD sin calculadora, usa el comando <code>CALC</code> (<code>CALCULADORA</code>).</p>
+            </div>
+
+            <!-- DIFERENCIAS -->
+            <h2 style="margin-top: 60px;">Diferencias Clave entre Sistemas de Medida</h2>
+
+            <table class="data-table">
+                <thead>
+                    <tr><th style="width:25%;">Aspecto</th><th>Sistema Métrico (Decimal)</th><th>Sistema Imperial (Pulgadas/Pies)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Base</td><td>Múltiplos de 10 (fácil de calcular mentalmente)</td><td>Bases variadas (12 in por ft, 3 ft por yd)</td></tr>
+                    <tr><td>Escritura</td><td>Decimales: <code>12.5 mm</code>, <code>2.75 m</code></td><td>Fracciones: <code>12 1/2"</code>, <code>2' 3 3/4"</code></td></tr>
+                    <tr><td>Precisión</td><td>Se controla con decimales (0, 0.0, 0.00…)</td><td>Se controla con el denominador de fracción (1/16, 1/32, 1/64)</td></tr>
+                    <tr><td>Uso en CAD</td><td>Dominante en el mundo: arquitectura, ingeniería, mecánica</td><td>Común en EE.UU.: construcción, carpintería, piezas importadas</td></tr>
+                    <tr><td>Ángulos</td><td>Grados decimales (ej: 22.5°)</td><td>Grados, minutos y segundos (ej: 22°30'00")</td></tr>
+                    <tr><td>Coherencia</td><td>1 m = 100 cm = 1000 mm sin ambigüedad</td><td>Requiere conversión constante entre ft e in (12 por pie)</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout" style="margin-top: 28px;">
+                <h4><i class="fa-solid fa-circle-info"></i> Diferencia entre precisión y exactitud</h4>
+                <p><strong>Precisión</strong> es cuántos decimales muestras (0.00 vs 0.000). <strong>Exactitud</strong> es cuán cerca del valor real está tu medida. Mostrar 0.000 no hace tu dibujo exacto: la exactitud depende de cómo dibujas y de tu uso de <code>OSNAP</code>. Un dibujo con 4 decimales puede ser un desastre si las líneas "casi" conectan.</p>
+            </div>
+
+            <!-- PRECISIÓN Y REDONDEO -->
+            <h2 style="margin-top: 60px;">Precisión y Redondeo</h2>
+            <p>AutoCAD almacena los valores con precisión completa; la precisión que configuras solo afecta lo que <em>se muestra</em>. Esto significa que una cota puede mostrar <code>3.0</code> pero medir realmente <code>3.0000001</code>. Para evitar inconsistencias:</p>
+            <ul>
+                <li>Dibuja siempre con <strong>valores exactos</strong>: escribe coordenadas o usa OSNAP; no "a ojo".</li>
+                <li>Configura la <strong>precisión de unidades</strong> (<code>UNIDADES</code>) a un valor razonable para tu disciplina (mecánica: 3 decimales; arquitectura: enteros o 2 decimales).</li>
+                <li>Usa <code>REDONDEO</code> en el estilo de dimensión solo si la industria lo exige (por ejemplo, redondear a 5 mm en estructuras).</li>
+                <li>Con <code>MEDIRGEOM</code> (<code>MG</code>) verifica distancias reales antes de acotar.</li>
+            </ul>
+
+            <div class="callout warning" style="margin-top: 20px;">
+                <h4><i class="fa-solid fa-triangle-exclamation"></i> Error clásico de redondeo</h4>
+                <p>Si tienes una cadena de cotas de 3 segmentos que "suman" 100.00 pero el total mide 100.01, es porque los objetos fueron dibujados con decimales ocultos. Corrige la geometría (<code>UNIR</code>, snaps), no ocultes el error reduciendo decimales.</p>
+            </div>
+
+            <!-- ESCALAS -->
+            <h2 style="margin-top: 60px;">Escalas Normalizadas</h2>
+            <p>Una escala es la relación entre la medida del dibujo y la medida real. Se escribe <strong>1:X</strong> (reducción) o <strong>X:1</strong> (ampliación). AutoCAD dibuja siempre a tamaño real (1:1); la escala se aplica al imprimir o en las ventanas del espacio papel.</p>
+
+            <div class="dim-layout">
+                <div class="dim-group">
+                    <div class="dim-group-header"><i class="fa-solid fa-down-left-and-up-right-to-center"></i> Escalas de Reducción (1:X)</div>
+                    <div class="command-list">
+                        <div class="command-item"><span class="cmd-key">1:1</span><span class="cmd-desc">Tamaño real</span></div>
+                        <div class="command-item"><span class="cmd-key">1:2</span><span class="cmd-desc">Mitad (detalles pequeños)</span></div>
+                        <div class="command-item"><span class="cmd-key">1:5 · 1:10</span><span class="cmd-desc">Detalles de piezas y constructivos</span></div>
+                        <div class="command-item"><span class="cmd-key">1:20 · 1:25</span><span class="cmd-desc">Detalles de obra, plantas de muebles</span></div>
+                        <div class="command-item"><span class="cmd-key">1:50 · 1:100</span><span class="cmd-desc">Plantas de arquitectura (las más usadas)</span></div>
+                        <div class="command-item"><span class="cmd-key">1:200 · 1:250</span><span class="cmd-desc">Plantas de conjunto, anteproyectos</span></div>
+                        <div class="command-item"><span class="cmd-key">1:500 · 1:1000</span><span class="cmd-desc">Urbanismo, planos de situación</span></div>
+                        <div class="command-item"><span class="cmd-key">1:2000 · 1:5000</span><span class="cmd-desc">Cartografía y mapas</span></div>
+                    </div>
+                </div>
+                <div class="dim-group">
+                    <div class="dim-group-header"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Escalas de Ampliación (X:1)</div>
+                    <div class="command-list">
+                        <div class="command-item"><span class="cmd-key">2:1</span><span class="cmd-desc">Doble tamaño (detalles)</span></div>
+                        <div class="command-item"><span class="cmd-key">5:1</span><span class="cmd-desc">Detalles de mecanizado</span></div>
+                        <div class="command-item"><span class="cmd-key">10:1</span><span class="cmd-desc">Micro-piezas, electrónica</span></div>
+                        <div class="command-item"><span class="cmd-key">20:1</span><span class="cmd-desc">Detalles de precisión</span></div>
+                        <div class="command-item"><span class="cmd-key">50:1 · 100:1</span><span class="cmd-desc">Escala microscópica (relojería, PCB)</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Escala típica según disciplina</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Disciplina</th><th>Escalas habituales</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Arquitectura - plantas</td><td>1:50, 1:100</td></tr>
+                    <tr><td>Arquitectura - detalles</td><td>1:5, 1:10, 1:20</td></tr>
+                    <tr><td>Ingeniería civil</td><td>1:200, 1:500, 1:1000</td></tr>
+                    <tr><td>Ingeniería mecánica</td><td>1:1, 1:2, 2:1, 5:1</td></tr>
+                    <tr><td>Urbanismo</td><td>1:500, 1:1000, 1:2000</td></tr>
+                    <tr><td>Topografía</td><td>1:1000, 1:2000, 1:5000</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout" style="margin-top: 28px;">
+                <h4><i class="fa-solid fa-lightbulb"></i> Truco de escala con AutoCAD</h4>
+                <p>Nunca uses <code>ESCALAR</code> (<code>ES</code>) para "acomodar" un dibujo a una escala: eso deforma las medidas reales. Dibuja a 1:1 y controla la escala en el espacio papel o al imprimir. Si necesitas verificar una escala, usa la lista de escalas de la ventana gráfica.</p>
+            </div>
+
+            <!-- PAPEL -->
+            <h2 style="margin-top: 60px;">Tamaños de Papel Normalizados</h2>
+            <p>El formato de papel determina cuánto cabe en tu lámina y qué escala podrás usar. La serie A (ISO 216) es el estándar internacional; la serie ANSI se usa en Estados Unidos.</p>
+
+            <h3>Serie A (ISO 216 - Internacional)</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Formato</th><th>Medidas (mm)</th><th>Relación con el anterior</th><th>Uso común</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>A0</td><td>841 × 1189</td><td>—</td><td>Planos de gran formato, carteles</td></tr>
+                    <tr><td>A1</td><td>594 × 841</td><td>Mitad del A0</td><td>Planos técnicos grandes</td></tr>
+                    <tr><td>A2</td><td>420 × 594</td><td>Mitad del A1</td><td>Planos de proyecto</td></tr>
+                    <tr><td>A3</td><td>297 × 420</td><td>Mitad del A2</td><td>El más usado en oficinas y presentaciones</td></tr>
+                    <tr><td>A4</td><td>210 × 297</td><td>Mitad del A3</td><td>Documentos, memorias, planos pequeños</td></tr>
+                    <tr><td>A5</td><td>148 × 210</td><td>Mitad del A4</td><td>Notas, folletos</td></tr>
+                    <tr><td>A6</td><td>105 × 148</td><td>Mitad del A5</td><td>Postales, tarjetas</td></tr>
+                </tbody>
+            </table>
+            <p><strong>Regla de oro de la serie A:</strong> cada formato mide la mitad que el anterior y mantiene la misma proporción √2 (1:1.414). A1 es la mitad exacta de A0, A2 de A1, y así sucesivamente.</p>
+
+            <h3>Formatos ANSI (Estados Unidos)</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Formato</th><th>Medidas</th><th>Equivalente métrico aproximado</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Carta (Letter)</td><td>8.5 × 11 in</td><td>216 × 279 mm</td></tr>
+                    <tr><td>Oficio (Legal)</td><td>8.5 × 14 in</td><td>216 × 356 mm</td></tr>
+                    <tr><td>Tabloide (Ledger)</td><td>11 × 17 in</td><td>279 × 432 mm</td></tr>
+                    <tr><td>ANSI C</td><td>17 × 22 in</td><td>432 × 559 mm</td></tr>
+                    <tr><td>ANSI D</td><td>22 × 34 in</td><td>559 × 864 mm</td></tr>
+                    <tr><td>ANSI E</td><td>34 × 44 in</td><td>864 × 1118 mm</td></tr>
+                </tbody>
+            </table>
+
+            <!-- TOLERANCIAS -->
+            <h2 style="margin-top: 60px;">Tolerancias y Ajustes</h2>
+            <p>Las tolerancias indican la desviación aceptable de una medida. En fabricación son imprescindibles: nadie puede mecanizar una pieza de "exactamente 50.000 mm", pero sí de <em>50.000 ± 0.05 mm</em>. Se definen en el estilo de dimensión o con el comando <code>TOLERANCIA</code>.</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr><th>Tipo</th><th>Formato</th><th>Ejemplo</th><th>Uso</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Desviación simétrica</td><td>± valor</td><td>50 ± 0.05</td><td>Tolerancia igual en ambos sentidos (lo más común)</td></tr>
+                    <tr><td>Desviación asimétrica</td><td>+ arriba / − abajo</td><td>50 +0.00 / −0.05</td><td>Ajustes por interferencia o juego controlado</td></tr>
+                    <tr><td>Límites</td><td>Valores máximo y mínimo</td><td>50.05 / 49.95</td><td>Cuando la pieza debe quedar entre dos medidas</td></tr>
+                    <tr><td>Referencia ISO 2768</td><td>Clase (m, f, c)</td><td>ISO 2768-mK</td><td>Tolerancias generales de mecanizado para dimensiones y formas</td></tr>
+                    <tr><td>Ajustes ISO (hueco/eje)</td><td>Código letra+número</td><td>H7/g6</td><td>Ajustes de ingeniería para ejes y taladros</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout" style="margin-top: 28px;">
+                <h4><i class="fa-solid fa-circle-info"></i> ¿Qué significa H7/g6?</h4>
+                <p>Es un <strong>ajuste con juego</strong> estándar ISO. La letra mayúscula indica el agujero (H = holgura base) y la minúscula el eje (g); el número (7, 6) indica la calidad (menor número = mayor precisión). <code>Ø50 H7/g6</code> describe un acople deslizante para un eje de 50 mm.</p>
+            </div>
+
+            <!-- ERRORES COMUNES -->
+            <h2 style="margin-top: 60px;">Errores Comunes al Acotar</h2>
+            <div class="error-grid">
+                <div class="error-card">
+                    <h4>Cotas que no coinciden con el objeto</h4>
+                    <p>El número mostrado no corresponde a la medida real porque se acotó entre puntos mal capturados.</p>
+                    <div class="fix">Solución: activa OSNAP (<span class="key">F3</span>) y captura extremos o intersecciones exactos, nunca puntos "al aire".</div>
+                </div>
+                <div class="error-card">
+                    <h4>Escalas mezcladas en un mismo plano</h4>
+                    <p>Detalles y plantas a distintas escalas sin indicarlo, o cotas que no cambian de tamaño con la escala.</p>
+                    <div class="fix">Solución: usa estilos Annotative y declara la escala de cada lámina en el rótulo.</div>
+                </div>
+                <div class="error-card">
+                    <h4>Redondear sin control</h4>
+                    <p>Una cadena de cotas que no suma el total por decimales ocultos en la geometría.</p>
+                    <div class="fix">Solución: corrige la geometría con <code>UNIR</code> y snaps antes de acotar; no bajes la precisión para "esconder" el error.</div>
+                </div>
+                <div class="error-card">
+                    <h4>Unidades equivocadas del proyecto</h4>
+                    <p>Se dibujó en mm pero el archivo se abre en pulgadas o viceversa.</p>
+                    <div class="fix">Solución: define y comunica el estándar (<code>UNIDADES</code>) y verifica el valor de <code>ESCALA INSERCIÓN</code> al insertar bloques o XREFs.</div>
+                </div>
+                <div class="error-card">
+                    <h4>Acotar en el espacio modelo "a escala"</h4>
+                    <p>Se escalaron las cotas con <code>ESCALAR</code> y ahora las medidas mostradas no son las reales.</p>
+                    <div class="fix">Solución: nunca escales el dibujo; aplica la escala en las ventanas del espacio papel o al imprimir.</div>
+                </div>
+                <div class="error-card">
+                    <h4>Todo en una sola capa de cotas</h4>
+                    <p>No se puede congelar o cambiar el color de las cotas por separado del resto del dibujo.</p>
+                    <div class="fix">Solución: crea una capa "COTAS" dedicada y una capa "TEXTO" para las anotaciones.</div>
+                </div>
+            </div>
+
+            <!-- BUENAS PRÁCTICAS -->
+            <h2 style="margin-top: 60px;">Reglas Básicas de Acotación</h2>
+            <ul>
+                <li><strong>Acota una sola vez</strong> cada medida: la repetición genera confusiones y posibles contradicciones.</li>
+                <li><strong>No acotes lo obvio:</strong> evita cotas redundantes cuando la geometría ya lo define claramente.</li>
+                <li><strong>Coloca las cotas fuera del objeto</strong>, dejando espacio para las líneas de extensión y el texto.</li>
+                <li><strong>Alinea y agrupa</strong> las cotas: cotas base y continuas deben compartir el mismo punto de origen.</li>
+                <li><strong>Usa el símbolo correcto:</strong> Ø para diámetros, R para radios, ° para ángulos, y prefiere radio en arcos menores a 180°.</li>
+                <li><strong>Textos legibles:</strong> la altura mínima del texto debe mantener la misma proporción en todas las escalas (Annotative lo resuelve).</li>
+                <li><strong>Prioriza la cota funcional:</strong> en piezas mecánicas, acota desde las superficies de referencia (datums) que se usarán en fabricación.</li>
+            </ul>
+
+            <!-- FAQ -->
+            <h2 style="margin-top: 60px;">Preguntas Frecuentes</h2>
+            <div class="faq-item">
+                <button class="faq-q">¿En qué unidades dibujo: mm, cm o m? <span class="faq-icon">+</span></button>
+                <div class="faq-a"><p>En <strong>milímetros</strong> para arquitectura y mecánica (es el estándar internacional). En <strong>metros</strong> para urbanismo y topografía. Decide antes de empezar y configúralo en <code>UNIDADES</code>.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">¿Cómo cambio las unidades de un dibujo ya hecho? <span class="faq-icon">+</span></button>
+                <div class="faq-a"><p>Usa el comando <code>UNIDADES</code> para cambiar el formato de visualización. Si debes convertir las medidas reales (ej: de pulgadas a mm), usa <code>ESCALAR</code> con factor 25.4 sobre el dibujo completo y reconfigura las unidades.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">¿Por qué mis cotas muestran muchos decimales? <span class="faq-icon">+</span></button>
+                <div class="faq-a"><p>Por la <strong>precisión del estilo de dimensión</strong>. Ábrelo con <code>ESTILO DIMENSIÓN</code> y ajusta el campo "Precisión" (ej: 0.00) en la pestaña Unidades principales.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">¿Qué es una cota Annotative? <span class="faq-icon">+</span></button>
+                <div class="faq-a"><p>Una cota que <strong>cambia de tamaño automáticamente</strong> según la escala de la ventana gráfica. Actívala al crear el estilo si vas a imprimir el mismo dibujo a varias escalas.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">¿1:50 y 1:100, cuál uso para la planta de mi casa? <span class="faq-icon">+</span></button>
+                <div class="faq-a"><p>La <strong>1:100</strong> para la planta general de una vivienda estándar; la <strong>1:50</strong> cuando necesitas mostrar más detalle (mobiliario, cotas abundantes) o en viviendas pequeñas. En A3 caben unos 10 × 15 m a 1:100.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q">¿Cómo verifico si mi dibujo está a la escala correcta? <span class="faq-icon">+</span></button>
+                <div class="faq-a"><p>Usa <code>MEDIRGEOM</code> (<code>MG</code>) o la cota en la ventana del espacio papel: el valor mostrado debe ser el real. También puedes comparar una medida conocida del objeto con la cota.</p></div>
+            </div>
+
+            <!-- CALCULADORA -->
+            <h2 style="margin: 60px 0 10px; font-size: 1.6rem;">Calculadora de Escala</h2>
+            <p style="margin-bottom: 24px;">Calcula la escala recomendada para tu plano según el tamaño del papel y las dimensiones del objeto.</p>
+            <div class="calc-box">
+                <div class="calc-grid">
+                    <div class="calc-field">
+                        <label for="paperSize">Formato de papel</label>
+                        <select id="paperSize">
+                            <option value="A4">A4 (210 × 297 mm)</option>
+                            <option value="A3" selected>A3 (297 × 420 mm)</option>
+                            <option value="A2">A2 (420 × 594 mm)</option>
+                            <option value="A1">A1 (594 × 841 mm)</option>
+                            <option value="A0">A0 (841 × 1189 mm)</option>
+                        </select>
+                    </div>
+                    <div class="calc-field">
+                        <label for="objWidth">Ancho del objeto (mm)</label>
+                        <input type="number" id="objWidth" value="1000" min="1">
+                    </div>
+                    <div class="calc-field">
+                        <label for="objHeight">Alto del objeto (mm)</label>
+                        <input type="number" id="objHeight" value="700" min="1">
+                    </div>
+                </div>
+                <button class="btn-primary" onclick="calcScale()"><i class="fa-solid fa-calculator"></i> Calcular escala</button>
+                <div class="calc-result" id="scaleResult" style="margin-top: 20px;">
+                    <div class="scale-value">1:2</div>
+                    <p class="scale-label">Escala recomendada</p>
+                    <p class="scale-note">Ajusta las medidas del objeto y pulsa "Calcular escala".</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo"><div class="logo-icon">AC</div>AutoCAD Guía</div>
+                    <p>Tu guía completa para dominar AutoCAD.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Aprendizaje</h4>
+                    <a href="que-es-cad.html">¿Qué es CAD?</a>
+                    <a href="interfaz.html">Interfaz</a>
+                    <a href="comandos.html">Comandos</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Práctica</h4>
+                    <a href="ejercicios.html">Ejercicios</a>
+                    <a href="glosario.html">Glosario</a>
+                    <a href="modulos.html">Módulos</a>
+                    <a href="recursos.html">Recursos</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Tecnología</h4>
+                    <p style="font-size:0.85rem; color:var(--text-dim);">HTML, CSS, JS, Three.js</p>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>© <span data-year></span> AutoCAD Guía Completa</p></div>
+        </div>
+    </footer>
+    <button class="back-to-top" id="backToTop">↑</button>
+    <script src="../assets/js/app.js"></script>
+    <script>calcScale();</script>
+    <script src="../assets/js/dynamic-year.js"></script>
+</body>
+</html>

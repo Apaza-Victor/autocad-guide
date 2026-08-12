@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 4 · Modificación y Edición de Objetos — AutoCAD Guía Completa</title>
+    <meta name="description" content="Edita tus dibujos: mover, copiar, rotar, escalar, recortar, alargar, simetría, matrices y desfase.">
+    <meta property="og:title" content="Módulo 4 · Modificación y Edición de Objetos">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/additional-styles.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cascadia+Code:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <a href="../../index.html" class="logo"><div class="logo-icon">AC</div>AutoCAD Guía</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../que-es-cad.html">¿Qué es CAD?</a></li>
+                <li><a href="../comandos.html">Comandos</a></li>
+                <li><a href="../dimensiones.html">Dimensiones</a></li>
+                <li><a href="../glosario.html">Glosario</a></li>
+                <li><a href="../modulos.html" class="active">Módulos</a></li>
+                <li><a href="../recursos.html">Recursos</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            <a href="../comandos.html" class="nav-cta">Ver Comandos <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <div class="section-label">Módulo 4 de 12 · Nivel Básico</div>
+            <h1>Modificación y Edición de Objetos</h1>
+            <p>Convierte tus dibujos básicos en geometría profesional con las herramientas de edición.</p>
+        </div>
+    </div>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="callout">
+                <h4><i class="fa-solid fa-bullseye"></i> Objetivos del módulo</h4>
+                <p>Aplicar modificaciones precisas: mover, copiar, rotar, escalar, recortar, alargar, simetría, desfase y matrices para trabajar con fluidez.</p>
+            </div>
+
+            <h3><i class="fa-solid fa-arrows-up-down-left-right"></i> Mover y copiar</h3>
+            <p><code>MOVER</code> (<code>M</code>) desplaza objetos y <code>COPIAR</code> (<code>CO</code>) los duplica. En ambos defines un <strong>punto base</strong> y un <strong>punto de desplazamiento</strong>. Con <code>CO</code> puedes escribir <code>@10,0</code> para duplicar a 10 unidades a la derecha, o usar la opción <code>M</code> para múltiples copias.</p>
+
+            <h3><i class="fa-solid fa-rotate"></i> Rotar y escalar</h3>
+            <p><code>GIRAR</code> (<code>GI</code>) rota alrededor de un punto base con un ángulo (positivo = antihorario). <code>ESCALAR</code> (<code>ES</code>) cambia el tamaño con un factor o con la opción <code>REF</code> para escalar a una medida exacta conocida.</p>
+
+            <h3><i class="fa-solid fa-scissors"></i> Recortar y alargar</h3>
+            <p><code>RECORTAR</code> (<code>RR</code>) elimina las partes que sobresalen de un límite; pulsa <code>Enter</code> al seleccionar "límites" para recortar contra cualquier objeto. <code>ALARGAR</code> (<code>AL</code>) hace lo contrario: extiende líneas hasta un límite. Ambos comparten la lógica de <strong>corte / límite</strong>.</p>
+
+            <h3><i class="fa-solid fa-left-right"></i> Simetría y desfase</h3>
+            <p><code>SIMETRIA</code> (<code>SI</code>) refleja objetos sobre una línea de espejo; con la opción <code>Copiar</code> conservas el original. <code>DESFASE</code> (<code>DF</code>) crea copias paralelas a una distancia dada: perfecto para muros, tuberías y contornos equidistantes.</p>
+
+            <h3><i class="fa-solid fa-table-cells"></i> Matrices</h3>
+            <p><code>MATRIZ</code> (<code>MA</code>) repite objetos en patrón. Hay tres tipos: <strong>rectangular</strong> (filas y columnas), <strong>polar</strong> (alrededor de un punto) y <strong>trayectoria</strong> (a lo largo de una polilínea). La matriz es asociativa: puedes editarla después.</p>
+
+            <h3><i class="fa-solid fa-keyboard"></i> Comandos clave</h3>
+            <table class="shortcuts-table">
+                <thead><tr><th>Comando</th><th>Atajo</th><th>Función</th></tr></thead>
+                <tbody>
+                    <tr><td><span class="cmd-key">MOVER</span></td><td>M</td><td>Desplaza objetos.</td></tr>
+                    <tr><td><span class="cmd-key">COPIAR</span></td><td>CO</td><td>Duplica objetos.</td></tr>
+                    <tr><td><span class="cmd-key">GIRAR</span></td><td>GI</td><td>Rota objetos.</td></tr>
+                    <tr><td><span class="cmd-key">ESCALAR</span></td><td>ES</td><td>Cambia el tamaño.</td></tr>
+                    <tr><td><span class="cmd-key">RECORTAR</span></td><td>RR</td><td>Elimina el sobrante.</td></tr>
+                    <tr><td><span class="cmd-key">ALARGAR</span></td><td>AL</td><td>Extiende hasta un límite.</td></tr>
+                    <tr><td><span class="cmd-key">SIMETRIA</span></td><td>SI</td><td>Refleja objetos.</td></tr>
+                    <tr><td><span class="cmd-key">DESFASE</span></td><td>DF</td><td>Crea paralelas equidistantes.</td></tr>
+                    <tr><td><span class="cmd-key">MATRIZ</span></td><td>MA</td><td>Repite en patrón.</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout success">
+                <h4><i class="fa-solid fa-check-double"></i> Práctica</h4>
+                <p>Dibuja una pieza sencilla, cópiala con <code>CO</code> a la derecha, gírala 90° con <code>GI</code>, crea una simetría con <code>SI</code> y haz un desfase de 5 unidades con <code>DF</code>. Termina con una matriz polar de 6 elementos.</p>
+            </div>
+
+            <div class="module-nav">
+                <a href="modulo-03-dibujo-2d.html" class="btn-secondary"><i class="fa-solid fa-arrow-left"></i> Módulo 3</a>
+                <a href="../modulos.html" class="btn-primary"><i class="fa-solid fa-th-list"></i> Todos los módulos</a>
+                <a href="modulo-05-capas.html" class="btn-secondary">Módulo 5 · Capas <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><div class="logo"><div class="logo-icon">AC</div>AutoCAD Guía</div><p>Tu guía completa para dominar AutoCAD.</p></div>
+                <div class="footer-links"><h4>Aprendizaje</h4><a href="../que-es-cad.html">¿Qué es CAD?</a><a href="../interfaz.html">Interfaz</a><a href="../comandos.html">Comandos</a><a href="../dimensiones.html">Dimensiones</a></div>
+                <div class="footer-links"><h4>Práctica</h4><a href="../ejercicios.html">Ejercicios</a><a href="../glosario.html">Glosario</a><a href="../modulos.html">Módulos</a><a href="../recursos.html">Recursos</a></div>
+                <div class="footer-links"><h4>Tecnología</h4><p style="font-size:0.85rem; color:var(--text-dim);">HTML, CSS, JS, Three.js</p></div>
+            </div>
+            <div class="footer-bottom"><p>© <span data-year></span> AutoCAD Guía Completa</p></div>
+        </div>
+    </footer>
+    <button class="back-to-top" id="backToTop">↑</button>
+    <script src="../../assets/js/app.js"></script>
+    <script src="../../assets/js/dynamic-year.js"></script>
+</body>
+</html>

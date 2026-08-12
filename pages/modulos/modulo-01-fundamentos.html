@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 1 · Fundamentos de AutoCAD — AutoCAD Guía Completa</title>
+    <meta name="description" content="Qué es CAD, historia del diseño asistido por computadora, tipos de software y conceptos esenciales antes de empezar con AutoCAD.">
+    <meta property="og:title" content="Módulo 1 · Fundamentos de AutoCAD">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/additional-styles.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cascadia+Code:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <a href="../../index.html" class="logo"><div class="logo-icon">AC</div>AutoCAD Guía</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../que-es-cad.html">¿Qué es CAD?</a></li>
+                <li><a href="../comandos.html">Comandos</a></li>
+                <li><a href="../dimensiones.html">Dimensiones</a></li>
+                <li><a href="../glosario.html">Glosario</a></li>
+                <li><a href="../modulos.html" class="active">Módulos</a></li>
+                <li><a href="../recursos.html">Recursos</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            <a href="../comandos.html" class="nav-cta">Ver Comandos <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <div class="section-label">Módulo 1 de 12 · Nivel Básico</div>
+            <h1>Fundamentos de AutoCAD</h1>
+            <p>Los conceptos esenciales que necesitas conocer antes de abrir el programa.</p>
+        </div>
+    </div>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="callout">
+                <h4><i class="fa-solid fa-bullseye"></i> Objetivos del módulo</h4>
+                <p>Al finalizar este módulo podrás explicar qué es CAD, reconocer los distintos tipos de software CAD y entender el espacio de trabajo lógico en el que se mueve AutoCAD: coordenadas, unidades y precisión.</p>
+            </div>
+
+            <h3><i class="fa-solid fa-cube"></i> ¿Qué es CAD?</h3>
+            <p>CAD (<em>Computer-Aided Design</em>, diseño asistido por computadora) es el uso de software para crear, modificar, analizar y documentar representaciones digitales de objetos físicos. En lugar de dibujar a mano, el diseñador traza geometría exacta en la computadora.</p>
+            <ul>
+                <li><strong>Precisión absoluta:</strong> cada punto se define con coordenadas exactas.</li>
+                <li><strong>Edición ilimitada:</strong> puedes modificar, copiar y reutilizar cualquier parte del dibujo.</li>
+                <li><strong>Reutilización:</strong> bloques, capas y plantillas aceleran el trabajo.</li>
+                <li><strong>Documentación automática:</strong> cotas, textos y tablas se generan desde el modelo.</li>
+            </ul>
+
+            <h3><i class="fa-solid fa-clock-rotate-left"></i> Breve historia</h3>
+            <p>El concepto de CAD nació en la década de 1960 con el sistema <strong>Sketchpad</strong> de Ivan Sutherland. Autodesk lanzó AutoCAD en 1982 y se convirtió en el estándar de la industria de dibujo técnico. Hoy, AutoCAD sigue siendo la herramienta más usada para diseño 2D y 3D en arquitectura, ingeniería y fabricación.</p>
+
+            <h3><i class="fa-solid fa-sitemap"></i> Tipos de software CAD</h3>
+            <ul>
+                <li><strong>CAD 2D:</strong> dibujo plano (plantas, planos, piezas). Ej.: AutoCAD, LibreCAD.</li>
+                <li><strong>CAD 3D paramétrico:</strong> modelos sólidos asociativos. Ej.: SolidWorks, Inventor, Fusion 360.</li>
+                <li><strong>BIM:</strong> modelos de información de construcción. Ej.: Revit, ArchiCAD.</li>
+                <li><strong>Mallas y superficies:</strong> modelado orgánico. Ej.: Blender, 3ds Max.</li>
+            </ul>
+
+            <h3><i class="fa-solid fa-location-crosshairs"></i> El sistema de coordenadas</h3>
+            <p>Toda la geometría en AutoCAD se dibuja sobre un sistema de coordenadas. El eje X va de izquierda a derecha, el eje Y de abajo hacia arriba y el eje Z (usado en 3D) sale de la pantalla. Puedes introducir puntos por coordenadas <strong>absolutas</strong> (<code>X,Y</code>), <strong>relativas</strong> (<code>@X,Y</code>) o <strong>polares</strong> (<code>@distancia&lt;ángulo</code>).</p>
+
+            <h3><i class="fa-solid fa-ruler"></i> Unidades y precisión</h3>
+            <p>Antes de dibujar define las unidades del proyecto (<code>UNIDADES</code>). Para planos arquitectónicos se usa milímetros o metros; para piezas mecánicas, milímetros o pulgadas. El dibujo debe ser <strong>siempre a escala real (1:1)</strong>; las escalas de impresión se configuran al final, en la lámina.</p>
+
+            <h3><i class="fa-solid fa-lightbulb"></i> Comandos clave de este módulo</h3>
+            <table class="shortcuts-table">
+                <thead><tr><th>Comando</th><th>Función</th></tr></thead>
+                <tbody>
+                    <tr><td><span class="cmd-key">UNIDADES</span></td><td>Configura las unidades y precisión del dibujo.</td></tr>
+                    <tr><td><span class="cmd-key">LIMITES</span></td><td>Define la extensión del área de dibujo.</td></tr>
+                    <tr><td><span class="cmd-key">REJILLA</span></td><td>Muestra u oculta la rejilla de referencia.</td></tr>
+                    <tr><td><span class="cmd-key">FORZCURSOR</span></td><td>Activa el ajuste de cursor a la rejilla.</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout success" style="margin-top: 32px;">
+                <h4><i class="fa-solid fa-check-double"></i> Consejos</h4>
+                <p>Dibuja siempre a escala 1:1, guarda cada 10 minutos (<code>Ctrl+S</code>) y crea una plantilla propia (<code>.dwt</code>) con tus unidades y capas favoritas para los próximos proyectos.</p>
+            </div>
+
+            <div class="module-nav">
+                <a href="../modulos.html" class="btn-secondary"><i class="fa-solid fa-th-list"></i> Todos los módulos</a>
+                <a href="modulo-02-interfaz.html" class="btn-primary">Módulo 2 · Interfaz <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><div class="logo"><div class="logo-icon">AC</div>AutoCAD Guía</div><p>Tu guía completa para dominar AutoCAD.</p></div>
+                <div class="footer-links"><h4>Aprendizaje</h4><a href="../que-es-cad.html">¿Qué es CAD?</a><a href="../interfaz.html">Interfaz</a><a href="../comandos.html">Comandos</a><a href="../dimensiones.html">Dimensiones</a></div>
+                <div class="footer-links"><h4>Práctica</h4><a href="../ejercicios.html">Ejercicios</a><a href="../glosario.html">Glosario</a><a href="../modulos.html">Módulos</a><a href="../recursos.html">Recursos</a></div>
+                <div class="footer-links"><h4>Tecnología</h4><p style="font-size:0.85rem; color:var(--text-dim);">HTML, CSS, JS, Three.js</p></div>
+            </div>
+            <div class="footer-bottom"><p>© <span data-year></span> AutoCAD Guía Completa</p></div>
+        </div>
+    </footer>
+    <button class="back-to-top" id="backToTop">↑</button>
+    <script src="../../assets/js/app.js"></script>
+    <script src="../../assets/js/dynamic-year.js"></script>
+</body>
+</html>

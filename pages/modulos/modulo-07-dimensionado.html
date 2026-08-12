@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 7 · Dimensionado y Anotaciones — AutoCAD Guía Completa</title>
+    <meta name="description" content="Estilos de cota, tipos de dimensiones, tolerancias y líderes para planos técnicos profesionales.">
+    <meta property="og:title" content="Módulo 7 · Dimensionado y Anotaciones">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/additional-styles.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cascadia+Code:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav id="navbar">
+        <div class="container">
+            <a href="../../index.html" class="logo"><div class="logo-icon">AC</div>AutoCAD Guía</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../que-es-cad.html">¿Qué es CAD?</a></li>
+                <li><a href="../comandos.html">Comandos</a></li>
+                <li><a href="../dimensiones.html">Dimensiones</a></li>
+                <li><a href="../glosario.html">Glosario</a></li>
+                <li><a href="../modulos.html" class="active">Módulos</a></li>
+                <li><a href="../recursos.html">Recursos</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            <a href="../comandos.html" class="nav-cta">Ver Comandos <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <div class="section-label">Módulo 7 de 12 · Nivel Intermedio</div>
+            <h1>Dimensionado y Anotaciones</h1>
+            <p>Comunica medidas exactas en tus planos con cotas profesionales.</p>
+        </div>
+    </div>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="callout">
+                <h4><i class="fa-solid fa-bullseye"></i> Objetivos del módulo</h4>
+                <p>Crear y gestionar estilos de cota, aplicar los distintos tipos de dimensiones y usar líderes y tolerancias correctamente.</p>
+            </div>
+
+            <h3><i class="fa-solid fa-ruler-combined"></i> Anatomía de una cota</h3>
+            <p>Toda cota tiene <strong>líneas de extensión</strong> (salen del objeto), <strong>línea de cota</strong> (donde va el número), <strong>texto de cota</strong> y <strong>flechas</strong>. Aprender esta estructura te ayudará a entender y personalizar el estilo.</p>
+
+            <h3><i class="fa-solid fa-sliders"></i> Estilos de cota</h3>
+            <p>Con <code>ESTILOACOT</code> (<code>D</code>) creas estilos que controlan texto, flechas, unidades, escala y precisión. Define un estilo para cada escala de lámina (1:50, 1:100...) y así las cotas se ven siempre del mismo tamaño al imprimir.</p>
+
+            <h3><i class="fa-solid fa-ruler"></i> Tipos de dimensiones</h3>
+            <ul>
+                <li><strong>Lineal</strong> (<code>ACOTAR</code>): mide distancias horizontales, verticales o giradas.</li>
+                <li><strong>Alineada</strong> (<code>ACOTAR ALINEADO</code>): mide la longitud real de un objeto inclinado.</li>
+                <li><strong>Radial / Diámetro</strong>: cotas de círculos y arcos.</li>
+                <li><strong>Angular</strong>: mide ángulos entre dos líneas.</li>
+                <li><strong>Continua y línea base</strong>: series de cotas encadenadas.</li>
+                <li><strong>Rápida</strong> (<code>ACOTAR</code> + <code>R</code>): coloca varias cotas a la vez.</li>
+            </ul>
+
+            <h3><i class="fa-solid fa-up-right-from-square"></i> Líderes y anotaciones</h3>
+            <p><code>LIDER</code> (<code>L</code>) crea líneas de referencia con texto o llamadas para notas. El líder <strong>multilineal</strong> (<code>LIDERM</code>) te permite varias líneas de texto y símbolos. Úsalos para detalles, materiales y notas generales.</p>
+
+            <h3><i class="fa-solid fa-gauge-high"></i> Tolerancias</h3>
+            <p>Las tolerancias definen la variación permitida en una medida de fabricación. En <code>ESTILOACOT</code> puedes configurar tolerancias lineales (desviación, límites) y simétricas, además de los ajustes para tolerancias geométricas con el símbolo de cajetín.</p>
+
+            <h3><i class="fa-solid fa-keyboard"></i> Comandos clave</h3>
+            <table class="shortcuts-table">
+                <thead><tr><th>Comando</th><th>Función</th></tr></thead>
+                <tbody>
+                    <tr><td><span class="cmd-key">ACOTAR</span></td><td>Crea cotas lineales, rápidas y continuas.</td></tr>
+                    <tr><td><span class="cmd-key">ESTILOACOT</span></td><td>Gestiona los estilos de cota.</td></tr>
+                    <tr><td><span class="cmd-key">LIDERM</span></td><td>Crea líderes multilínea.</td></tr>
+                    <tr><td><span class="cmd-key">EDCOTA</span></td><td>Edita el texto o la geometría de la cota.</td></tr>
+                    <tr><td><span class="cmd-key">RECONSTRUIR</span></td><td>Actualiza cotas que perdieron su referencia.</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout warning">
+                <h4><i class="fa-solid fa-triangle-exclamation"></i> Errores comunes</h4>
+                <p>Colocar cotas en la capa equivocada, usar varios estilos incompatibles y escribir medidas a mano en lugar de dejar que AutoCAD las calcule. Las cotas deben ser <strong>asociativas</strong>: se actualizan al modificar el dibujo.</p>
+            </div>
+
+            <div class="callout success">
+                <h4><i class="fa-solid fa-check-double"></i> Práctica</h4>
+                <p>Dibuja un plano simple y acótalo con lineal, alineada y radial. Crea un estilo de cota con texto de 2.5mm y flechas de 2mm y aplica una tolerancia simétrica de ±0.5.</p>
+            </div>
+
+            <div class="module-nav">
+                <a href="modulo-06-bloques.html" class="btn-secondary"><i class="fa-solid fa-arrow-left"></i> Módulo 6</a>
+                <a href="../modulos.html" class="btn-primary"><i class="fa-solid fa-th-list"></i> Todos los módulos</a>
+                <a href="modulo-08-textos.html" class="btn-secondary">Módulo 8 · Textos y Tablas <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><div class="logo"><div class="logo-icon">AC</div>AutoCAD Guía</div><p>Tu guía completa para dominar AutoCAD.</p></div>
+                <div class="footer-links"><h4>Aprendizaje</h4><a href="../que-es-cad.html">¿Qué es CAD?</a><a href="../interfaz.html">Interfaz</a><a href="../comandos.html">Comandos</a><a href="../dimensiones.html">Dimensiones</a></div>
+                <div class="footer-links"><h4>Práctica</h4><a href="../ejercicios.html">Ejercicios</a><a href="../glosario.html">Glosario</a><a href="../modulos.html">Módulos</a><a href="../recursos.html">Recursos</a></div>
+                <div class="footer-links"><h4>Tecnología</h4><p style="font-size:0.85rem; color:var(--text-dim);">HTML, CSS, JS, Three.js</p></div>
+            </div>
+            <div class="footer-bottom"><p>© <span data-year></span> AutoCAD Guía Completa</p></div>
+        </div>
+    </footer>
+    <button class="back-to-top" id="backToTop">↑</button>
+    <script src="../../assets/js/app.js"></script>
+    <script src="../../assets/js/dynamic-year.js"></script>
+</body>
+</html>

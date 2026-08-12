@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comandos de AutoCAD — AutoCAD Guía Completa</title>
+    <meta name="description" content="Referencia completa de comandos y atajos de AutoCAD en español: dibujo, modificación, cotas, capas y utilidades.">
+    <meta property="og:title" content="Comandos de AutoCAD — Guía Completa">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/additional-styles.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cascadia+Code:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- NAV -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <div class="logo-icon">AC</div>
+                AutoCAD Guía
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="que-es-cad.html">¿Qué es CAD?</a></li>
+                <li><a href="comandos.html" class="active">Comandos</a></li>
+                <li><a href="dimensiones.html">Dimensiones</a></li>
+                <li><a href="glosario.html">Glosario</a></li>
+                <li><a href="modulos.html">Módulos</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="comandos.html" class="nav-cta">Ver Comandos <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <div class="container">
+            <div class="section-label">Referencia</div>
+            <h1>Comandos de AutoCAD</h1>
+            <p>Comandos y atajos de teclado correctos para la versión en español de AutoCAD.</p>
+        </div>
+    </div>
+
+    <!-- SEARCH -->
+    <section class="content-section">
+        <div class="container">
+            <div class="search-container">
+                <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="text" class="search-input" id="commandSearch" placeholder="Buscar comando o atajo... (ej: LÍNEA, RECORTAR, ZOOM)">
+            </div>
+
+            <div class="callout" style="margin-bottom: 30px;">
+                <h4><i class="fa-solid fa-keyboard"></i> Truco esencial</h4>
+                <p><strong>Enter</strong> permite continuar con la herramienta usada recientemente. Por ejemplo: escribe <code>RR</code> y pulsa Enter para recortar, o <code>C</code> y Enter para dibujar un círculo.</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="all">Todos</button>
+                <button class="tab-btn" data-tab="drawing">Dibujo</button>
+                <button class="tab-btn" data-tab="modify">Modificación</button>
+                <button class="tab-btn" data-tab="annotation">Textos y Cotas</button>
+                <button class="tab-btn" data-tab="layers">Capas y Bloques</button>
+                <button class="tab-btn" data-tab="view">Pantalla y Utilidades</button>
+            </div>
+
+            <div class="commands-layout" id="commandsContainer">
+                <!-- Drawing Commands -->
+                <div class="command-group" data-category="drawing">
+                    <div class="command-group-header"><i class="fa-solid fa-pen-ruler"></i> Dibujo de Objetos (2D)</div>
+                    <div class="command-list">
+                        <div class="command-item"><span class="cmd-key">L</span><span class="cmd-name">LÍNEA</span><span class="cmd-desc">Dibuja líneas entre dos puntos</span></div>
+                        <div class="command-item"><span class="cmd-key">POL</span><span class="cmd-name">POLILÍNEA</span><span class="cmd-desc">Línea compuesta de segmentos unidos</span></div>
+                        <div class="command-item"><span class="cmd-key">C</span><span class="cmd-name">CÍRCULO</span><span class="cmd-desc">Dibuja un círculo</span></div>
+                        <div class="command-item"><span class="cmd-key">EL</span><span class="cmd-name">ELIPSE</span><span class="cmd-desc">Dibuja una elipse</span></div>
+                        <div class="command-item"><span class="cmd-key">PO</span><span class="cmd-name">PUNTO</span><span class="cmd-desc">Coloca puntos de referencia</span></div>
+                        <div class="command-item"><span class="cmd-key">SB</span><span class="cmd-name">SOMBREADO</span><span class="cmd-desc">Rellena áreas con patrones (Hatch)</span></div>
+                        <div class="command-item"><span class="cmd-key">REC</span><span class="cmd-name">RECTÁNGULO</span><span class="cmd-desc">Dibuja un rectángulo</span></div>
+                        <div class="command-item"><span class="cmd-key">PG</span><span class="cmd-name">POLÍGONO</span><span class="cmd-desc">Dibuja un polígono regular</span></div>
+                        <div class="command-item"><span class="cmd-key">A</span><span class="cmd-name">ARCO</span><span class="cmd-desc">Dibuja un arco</span></div>
+                        <div class="command-item"><span class="cmd-key">SPL</span><span class="cmd-name">SPLINE</span><span class="cmd-desc">Dibuja una curva suave</span></div>
+                    </div>
+                </div>
+
+                <!-- Modify Commands -->
+                <div class="command-group" data-category="modify">
+                    <div class="command-group-header"><i class="fa-solid fa-wrench"></i> Modificación y Edición</div>
+                    <div class="command-list">
+                        <div class="command-item"><span class="cmd-key">RR</span><span class="cmd-name">RECORTAR</span><span class="cmd-desc">Recorta objetos por límites (Trim)</span></div>
+                        <div class="command-item"><span class="cmd-key">AL</span><span class="cmd-name">ALARGAR</span><span class="cmd-desc">Extiende objetos hasta un límite (Extend)</span></div>
+                        <div class="command-item"><span class="cmd-key">M</span><span class="cmd-name">DESPLAZAR</span><span class="cmd-desc">Mueve objetos a nueva posición (Mover)</span></div>
+                        <div class="command-item"><span class="cmd-key">CO</span><span class="cmd-name">COPIAR</span><span class="cmd-desc">Crea copias de objetos</span></div>
+                        <div class="command-item"><span class="cmd-key">GI</span><span class="cmd-name">GIRAR</span><span class="cmd-desc">Rota objetos alrededor de un punto</span></div>
+                        <div class="command-item"><span class="cmd-key">ES</span><span class="cmd-name">ESCALAR</span><span class="cmd-desc">Escala objetos proporcionalmente</span></div>
+                        <div class="command-item"><span class="cmd-key">SI</span><span class="cmd-name">SIMETRÍA</span><span class="cmd-desc">Refleja objetos simétricamente (Mirror)</span></div>
+                        <div class="command-item"><span class="cmd-key">DF</span><span class="cmd-name">DESFASE</span><span class="cmd-desc">Crea paralelas a una distancia (Offset)</span></div>
+                        <div class="command-item"><span class="cmd-key">EM</span><span class="cmd-name">EMPALME</span><span class="cmd-desc">Redondea esquinas con radio (Fillet)</span></div>
+                        <div class="command-item"><span class="cmd-key">CH</span><span class="cmd-name">CHAFLÁN</span><span class="cmd-desc">Crea chaflán en esquinas (Chamfer)</span></div>
+                        <div class="command-item"><span class="cmd-key">MA</span><span class="cmd-name">MATRIZ</span><span class="cmd-desc">Crea patrones de copias (Array)</span></div>
+                        <div class="command-item"><span class="cmd-key">ALN</span><span class="cmd-name">ALINEAR</span><span class="cmd-desc">Alinea objetos (Align)</span></div>
+                        <div class="command-item"><span class="cmd-key">DP</span><span class="cmd-name">DESCOMPONER</span><span class="cmd-desc">Descompone bloques en partes (Explode)</span></div>
+                    </div>
+                </div>
+
+                <!-- Annotation Commands -->
+                <div class="command-group" data-category="annotation">
+                    <div class="command-group-header"><i class="fa-solid fa-comment-dots"></i> Textos y Cotas</div>
+                    <div class="command-list">
+                        <div class="command-item"><span class="cmd-key">T</span><span class="cmd-name">TEXTO MÚLTIPLE</span><span class="cmd-desc">Texto multilínea con formato</span></div>
+                        <div class="command-item"><span class="cmd-key">ACL</span><span class="cmd-name">COTA LINEAL</span><span class="cmd-desc">Cota lineal horizontal/vertical</span></div>
+                        <div class="command-item"><span class="cmd-key">ACA</span><span class="cmd-name">COTA ALINEADA</span><span class="cmd-desc">Cota alineada al objeto</span></div>
+                        <div class="command-item"><span class="cmd-key">ACG</span><span class="cmd-name">COTA ANGULAR</span><span class="cmd-desc">Cota de ángulo entre líneas</span></div>
+                        <div class="command-item"><span class="cmd-key">ACR</span><span class="cmd-name">COTA DE RADIO</span><span class="cmd-desc">Cota de radio de arco/círculo</span></div>
+                        <div class="command-item"><span class="cmd-key">ET</span><span class="cmd-name">ESTILO TEXTO</span><span class="cmd-desc">Administra estilos de texto</span></div>
+                        <div class="command-item"><span class="cmd-key">ESC</span><span class="cmd-name">ESTILO COTA</span><span class="cmd-desc">Administra estilos de acotación</span></div>
+                    </div>
+                </div>
+
+                <!-- Layers & Blocks -->
+                <div class="command-group" data-category="layers">
+                    <div class="command-group-header"><i class="fa-solid fa-layer-group"></i> Gestión de Capas y Bloques</div>
+                    <div class="command-list">
+                        <div class="command-item"><span class="cmd-key">CA</span><span class="cmd-name">CAPA</span><span class="cmd-desc">Administrador de capas (Layers)</span></div>
+                        <div class="command-item"><span class="cmd-key">BL</span><span class="cmd-name">BLOQUE</span><span class="cmd-desc">Crea un bloque</span></div>
+                        <div class="command-item"><span class="cmd-key">I</span><span class="cmd-name">INSERT</span><span class="cmd-desc">Inserta un bloque o referencia</span></div>
+                        <div class="command-item"><span class="cmd-key">EB</span><span class="cmd-name">EDITAR BLOQUE</span><span class="cmd-desc">Abre el editor de bloques</span></div>
+                        <div class="command-item"><span class="cmd-key">PR</span><span class="cmd-name">PROPIEDADES</span><span class="cmd-desc">Paleta de propiedades</span></div>
+                        <div class="command-item"><span class="cmd-key">IP</span><span class="cmd-name">IGUALAR PROP.</span><span class="cmd-desc">Copia propiedades entre objetos (Match Properties)</span></div>
+                    </div>
+                </div>
+
+                <!-- View / Utilities -->
+                <div class="command-group" data-category="view">
+                    <div class="command-group-header"><i class="fa-solid fa-eye"></i> Control de Pantalla y Utilidades</div>
+                    <div class="command-list">
+                        <div class="command-item"><span class="cmd-key">RG</span><span class="cmd-name">REGEN</span><span class="cmd-desc">Regenera la pantalla</span></div>
+                        <div class="command-item"><span class="cmd-key">Z</span><span class="cmd-name">ZOOM</span><span class="cmd-desc">Acerca o aleja la vista</span></div>
+                        <div class="command-item"><span class="cmd-key">EN</span><span class="cmd-name">ENCUADRE</span><span class="cmd-desc">Desplaza la vista sin cambiar zoom (Pan / Mano)</span></div>
+                        <div class="command-item"><span class="cmd-key">MG</span><span class="cmd-name">MEDIRGEOM</span><span class="cmd-desc">Mide distancias, áreas o radios</span></div>
+                        <div class="command-item"><span class="cmd-key">CALC</span><span class="cmd-name">CALCULADORA</span><span class="cmd-desc">Calculadora rápida</span></div>
+                        <div class="command-item"><span class="cmd-key">LI</span><span class="cmd-name">LIMPIA</span><span class="cmd-desc">Limpia elementos no usados (Purge)</span></div>
+                    </div>
+                </div>
+
+                <!-- Special Keys -->
+                <div class="command-group" data-category="keys">
+                    <div class="command-group-header"><i class="fa-solid fa-keyboard"></i> Teclas Especiales (F1 - F12)</div>
+                    <div class="command-list">
+                        <div class="command-item"><span class="cmd-key">F3</span><span class="cmd-name">OSNAP</span><span class="cmd-desc">Activa/Desactiva referencia a objetos (Adpuntar)</span></div>
+                        <div class="command-item"><span class="cmd-key">F8</span><span class="cmd-name">ORTO</span><span class="cmd-desc">Activa/Desactiva modo ortogonal (líneas rectas)</span></div>
+                        <div class="command-item"><span class="cmd-key">F10</span><span class="cmd-name">POLAR</span><span class="cmd-desc">Activa/Desactiva rastreo polar</span></div>
+                        <div class="command-item"><span class="cmd-key">F12</span><span class="cmd-name">DINÁMICO</span><span class="cmd-desc">Activa/Desactiva entrada dinámica (escribir junto al cursor)</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Keyboard Shortcuts -->
+            <h2 style="margin: 40px 0 24px; font-size: 1.6rem;">Atajos de Teclado Esenciales</h2>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Atajo</th>
+                        <th>Comando</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dibujo -->
+                    <tr><td colspan="3" class="table-group">Dibujo de Objetos (2D)</td></tr>
+                    <tr><td><span class="key">L</span></td><td>LÍNEA</td><td>Dibuja una línea</td></tr>
+                    <tr><td><span class="key">POL</span></td><td>POLILÍNEA</td><td>Línea compuesta de segmentos</td></tr>
+                    <tr><td><span class="key">C</span></td><td>CÍRCULO</td><td>Dibuja un círculo</td></tr>
+                    <tr><td><span class="key">EL</span></td><td>ELIPSE</td><td>Dibuja una elipse</td></tr>
+                    <tr><td><span class="key">PO</span></td><td>PUNTO</td><td>Coloca un punto de referencia</td></tr>
+                    <tr><td><span class="key">SB</span></td><td>SOMBREADO</td><td>Rellena áreas con patrones</td></tr>
+                    <tr><td><span class="key">REC</span></td><td>RECTÁNGULO</td><td>Dibuja un rectángulo</td></tr>
+                    <tr><td><span class="key">PG</span></td><td>POLÍGONO</td><td>Dibuja un polígono regular</td></tr>
+                    <tr><td><span class="key">A</span></td><td>ARCO</td><td>Dibuja un arco</td></tr>
+                    <tr><td><span class="key">SPL</span></td><td>SPLINE</td><td>Dibuja una curva suave</td></tr>
+
+                    <!-- Modificación -->
+                    <tr><td colspan="3" class="table-group">Modificación y Edición</td></tr>
+                    <tr><td><span class="key">RR</span></td><td>RECORTAR</td><td>Recorta objetos (Trim)</td></tr>
+                    <tr><td><span class="key">AL</span></td><td>ALARGAR</td><td>Extiende objetos (Extend)</td></tr>
+                    <tr><td><span class="key">M</span></td><td>DESPLAZAR</td><td>Mueve objetos</td></tr>
+                    <tr><td><span class="key">CO</span></td><td>COPIAR</td><td>Copia objetos</td></tr>
+                    <tr><td><span class="key">GI</span></td><td>GIRAR</td><td>Rota objetos</td></tr>
+                    <tr><td><span class="key">ES</span></td><td>ESCALAR</td><td>Cambia el tamaño de objetos</td></tr>
+                    <tr><td><span class="key">SI</span></td><td>SIMETRÍA</td><td>Refleja objetos (Mirror)</td></tr>
+                    <tr><td><span class="key">DF</span></td><td>DESFASE</td><td>Crea paralelas (Offset)</td></tr>
+                    <tr><td><span class="key">EM</span></td><td>EMPALME</td><td>Redondea esquinas (Fillet)</td></tr>
+                    <tr><td><span class="key">CH</span></td><td>CHAFLÁN</td><td>Crea chaflán (Chamfer)</td></tr>
+                    <tr><td><span class="key">MA</span></td><td>MATRIZ</td><td>Crea patrones de copias (Array)</td></tr>
+                    <tr><td><span class="key">ALN</span></td><td>ALINEAR</td><td>Alinea objetos (Align)</td></tr>
+                    <tr><td><span class="key">DP</span></td><td>DESCOMPONER</td><td>Descompone bloques (Explode)</td></tr>
+
+                    <!-- Textos y Cotas -->
+                    <tr><td colspan="3" class="table-group">Textos y Cotas</td></tr>
+                    <tr><td><span class="key">T</span></td><td>TEXTO MÚLTIPLE</td><td>Texto multilínea con formato</td></tr>
+                    <tr><td><span class="key">ACL</span></td><td>COTA LINEAL</td><td>Cota lineal horizontal/vertical</td></tr>
+                    <tr><td><span class="key">ACA</span></td><td>COTA ALINEADA</td><td>Cota alineada al objeto</td></tr>
+                    <tr><td><span class="key">ACG</span></td><td>COTA ANGULAR</td><td>Cota de ángulo</td></tr>
+                    <tr><td><span class="key">ACR</span></td><td>COTA DE RADIO</td><td>Cota de radio de arco/círculo</td></tr>
+                    <tr><td><span class="key">ET</span></td><td>ESTILO TEXTO</td><td>Administra estilos de texto</td></tr>
+                    <tr><td><span class="key">ESC</span></td><td>ESTILO COTA</td><td>Administra estilos de acotación</td></tr>
+
+                    <!-- Capas y Bloques -->
+                    <tr><td colspan="3" class="table-group">Gestión de Capas y Bloques</td></tr>
+                    <tr><td><span class="key">CA</span></td><td>CAPA</td><td>Administra capas</td></tr>
+                    <tr><td><span class="key">BL</span></td><td>BLOQUE</td><td>Crea un bloque</td></tr>
+                    <tr><td><span class="key">I</span></td><td>INSERT</td><td>Inserta un bloque</td></tr>
+                    <tr><td><span class="key">EB</span></td><td>EDITAR BLOQUE</td><td>Editor de bloques</td></tr>
+                    <tr><td><span class="key">PR</span></td><td>PROPIEDADES</td><td>Paleta de propiedades</td></tr>
+                    <tr><td><span class="key">IP</span></td><td>IGUALAR PROP.</td><td>Copia propiedades entre objetos</td></tr>
+
+                    <!-- Pantalla y Utilidades -->
+                    <tr><td colspan="3" class="table-group">Control de Pantalla y Utilidades</td></tr>
+                    <tr><td><span class="key">RG</span></td><td>REGEN</td><td>Regenera la pantalla</td></tr>
+                    <tr><td><span class="key">Z</span></td><td>ZOOM</td><td>Acerca/aleja la vista</td></tr>
+                    <tr><td><span class="key">EN</span></td><td>ENCUADRE</td><td>Desplaza la vista (Pan / Mano)</td></tr>
+                    <tr><td><span class="key">MG</span></td><td>MEDIRGEOM</td><td>Mide distancias, áreas o radios</td></tr>
+                    <tr><td><span class="key">CALC</span></td><td>CALCULADORA</td><td>Calculadora rápida</td></tr>
+                    <tr><td><span class="key">LI</span></td><td>LIMPIA</td><td>Limpia elementos no usados (Purge)</td></tr>
+
+                    <!-- Teclas F -->
+                    <tr><td colspan="3" class="table-group">Teclas Especiales (F1 - F12)</td></tr>
+                    <tr><td><span class="key">F3</span></td><td>OSNAP (ADPUNTAR)</td><td>Referencia a objetos</td></tr>
+                    <tr><td><span class="key">F8</span></td><td>ORTO</td><td>Modo ortogonal (líneas rectas)</td></tr>
+                    <tr><td><span class="key">F10</span></td><td>POLAR</td><td>Rastreo polar</td></tr>
+                    <tr><td><span class="key">F12</span></td><td>DINÁMICO</td><td>Entrada dinámica</td></tr>
+
+                    <!-- Gestión de Archivos -->
+                    <tr><td colspan="3" class="table-group">Gestión de Archivos</td></tr>
+                    <tr><td><span class="key">Ctrl+Z</span></td><td>DESHACER</td><td>Deshace la última acción</td></tr>
+                    <tr><td><span class="key">Ctrl+Y</span></td><td>REHACER</td><td>Rehace la acción</td></tr>
+                    <tr><td><span class="key">Ctrl+S</span></td><td>GUARDAR</td><td>Guarda el archivo</td></tr>
+                    <tr><td><span class="key">Ctrl+N</span></td><td>NUEVO</td><td>Crea archivo nuevo</td></tr>
+                    <tr><td><span class="key">Ctrl+O</span></td><td>ABRIR</td><td>Abre archivo existente</td></tr>
+                    <tr><td><span class="key">Ctrl+P</span></td><td>IMPRIMIR</td><td>Imprime el dibujo</td></tr>
+                    <tr><td><span class="key">Ctrl+9</span></td><td>LÍNEA CMD</td><td>Muestra/oculta línea de comandos</td></tr>
+
+                    <!-- Especiales -->
+                    <tr><td colspan="3" class="table-group">Otros</td></tr>
+                    <tr><td><span class="key">Enter</span></td><td>REPETIR</td><td>Continúa con la herramienta usada recientemente</td></tr>
+                    <tr><td><span class="key">ESC</span></td><td>CANCELAR</td><td>Cancela el comando actual</td></tr>
+                </tbody>
+            </table>
+
+            <!-- Consejo Pro -->
+            <div class="callout" style="margin-top: 40px;">
+                <h4><i class="fa-solid fa-lightbulb"></i> Consejo Pro</h4>
+                <p>Si un comando no te funciona en español, escribe un guion bajo antes del comando en inglés (por ejemplo: <code>_TRIM</code> para recortar o <code>_OFFSET</code> para desfase) y AutoCAD lo reconocerá sin importar el idioma del programa.</p>
+            </div>
+
+            <!-- Nota sobre modos en inglés -->
+            <div class="callout" style="margin-top: 16px;">
+                <h4><i class="fa-solid fa-circle-info"></i> Nota sobre Modos y Términos Técnicos</h4>
+                <p>Algunos modos y términos se mantienen en inglés porque son universales en todas las versiones de AutoCAD:</p>
+                <ul style="margin-top: 10px; margin-left: 20px; color: var(--text-dim); font-size: 0.9rem; line-height: 1.8;">
+                    <li><strong>OSNAP</strong> (F3) = Ajuste a Objetos / Adpuntar</li>
+                    <li><strong>ORTHO</strong> (F8) = Modo Orto / Ortogonal</li>
+                    <li><strong>GRID</strong> (F7) = Cuadrícula</li>
+                    <li><strong>SNAP</strong> (F9) = Ajuste a Cuadrícula</li>
+                    <li><strong>POLAR</strong> (F10) = Rastreo Polar</li>
+                    <li><strong>OTRACK</strong> (F11) = Rastreo de Objetos</li>
+                    <li><strong>DYNMODE</strong> (F12) = Entrada Dinámica</li>
+                    <li><strong>UCS</strong> = Sistema de Coordenadas de Usuario</li>
+                    <li><strong>XREF</strong> = Referencias Externas</li>
+                    <li><strong>DWG</strong> = Formato de archivo de AutoCAD</li>
+                </ul>
+            </div>
+
+            <!-- Mini Simulator -->
+            <h2 style="margin: 50px 0 10px; font-size: 1.6rem;">Simulador de Comandos</h2>
+            <p style="margin-bottom: 24px;">Prueba de forma interactiva qué efecto tiene cada comando de modificación sobre un objeto.</p>
+            <div class="sim-box">
+                <div class="sim-header"><i class="fa-solid fa-wand-magic-sparkles"></i> Mini Simulador de Modificación</div>
+                <div class="sim-body">
+                    <div class="sim-canvas" id="simCanvas">
+                        <div class="sim-shape" id="simShape1" style="width: 80px; height: 55px; top: 38%; left: 30%;"></div>
+                        <div class="sim-shape" id="simShape2" style="width: 80px; height: 55px; top: 15%; left: 60%; border-color: var(--green); display: none;"></div>
+                    </div>
+                    <div class="sim-sidebar">
+                        <button class="sim-cmd-btn" onclick="simCmd('move')"><i class="fa-solid fa-arrows-up-down-left-right"></i> Mover <kbd>M</kbd></button>
+                        <button class="sim-cmd-btn" onclick="simCmd('copy')"><i class="fa-solid fa-copy"></i> Copiar <kbd>CO</kbd></button>
+                        <button class="sim-cmd-btn" onclick="simCmd('rotate')"><i class="fa-solid fa-rotate-right"></i> Girar <kbd>GI</kbd></button>
+                        <button class="sim-cmd-btn" onclick="simCmd('scale')"><i class="fa-solid fa-expand"></i> Escalar <kbd>ES</kbd></button>
+                        <button class="sim-cmd-btn" onclick="simCmd('mirror')"><i class="fa-solid fa-left-right"></i> Simetría <kbd>SI</kbd></button>
+                        <button class="sim-cmd-btn" onclick="simCmd('fillet')"><i class="fa-solid fa-circle-half-stroke"></i> Empalme <kbd>EM</kbd></button>
+                        <button class="sim-cmd-btn" onclick="simCmd('erase')"><i class="fa-solid fa-eraser"></i> Borrar <kbd>SUPR</kbd></button>
+                        <button class="sim-cmd-btn" onclick="simCmd('reset')"><i class="fa-solid fa-rotate-left"></i> Restablecer</button>
+                        <div class="sim-info" id="simInfo">Selecciona un comando de la lista para ver su efecto sobre el objeto.</div>
+                    </div>
+                </div>
+                <div class="sim-status">
+                    <span>Comando: <span id="simStatus">—</span></span>
+                    <span>Cursor: <span id="simCoord">0.0, 0.0, 0.00</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">AC</div>
+                        AutoCAD Guía
+                    </div>
+                    <p>Tu guía completa para dominar AutoCAD.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Aprendizaje</h4>
+                    <a href="que-es-cad.html">¿Qué es CAD?</a>
+                    <a href="interfaz.html">Interfaz</a>
+                    <a href="comandos.html">Comandos</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Práctica</h4>
+                    <a href="ejercicios.html">Ejercicios</a>
+                    <a href="glosario.html">Glosario</a>
+                    <a href="modulos.html">Módulos</a>
+                    <a href="recursos.html">Recursos</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Tecnología</h4>
+                    <p style="font-size:0.85rem; color:var(--text-dim);">HTML, CSS, JS, Three.js</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span data-year></span> AutoCAD Guía Completa</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop">↑</button>
+
+    <script src="../assets/js/app.js"></script>
+    <script>
+        // Command search and filter functionality
+        const searchInput = document.getElementById('commandSearch');
+        const commandItems = document.querySelectorAll('.command-item');
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const commandGroups = document.querySelectorAll('.command-group');
+
+        // Search
+        searchInput?.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            commandItems.forEach(item => {
+                const name = item.querySelector('.cmd-name').textContent.toLowerCase();
+                const desc = item.querySelector('.cmd-desc').textContent.toLowerCase();
+                const key = item.querySelector('.cmd-key').textContent.toLowerCase();
+                item.style.display = (name.includes(query) || desc.includes(query) || key.includes(query)) ? 'grid' : 'none';
+            });
+
+            document.querySelectorAll('.data-table tbody tr').forEach(row => {
+                const isGroup = row.classList.contains('table-group');
+                const match = row.textContent.toLowerCase().includes(query);
+                row.style.display = (isGroup || match) ? '' : 'none';
+            });
+        });
+
+        // Tab filter
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const tab = btn.dataset.tab;
+
+                commandGroups.forEach(group => {
+                    if (tab === 'all' || group.dataset.category === tab) {
+                        group.style.display = 'block';
+                    } else {
+                        group.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="../assets/js/dynamic-year.js"></script>
+</body>
+</html>
