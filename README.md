@@ -114,6 +114,11 @@ autocad-guide/
 2. Crea una rama con tu cambio: `git checkout -b mi-mejora`.
 3. Confirma tus cambios y envía un pull request.
 
+## 👤 Autor y Copyright
+
+© 2026 **Apaza-Victor** · AutoCAD Guía Completa
+Autor: [Apaza-Victor](https://github.com/Apaza-Victor)
+
 ## 📄 Licencia
 
 Este proyecto es un recurso educativo. Usa contenido e imágenes de terceros (referencias CAD) con fines didácticos. Consulta las atribuciones en la página de **Recursos**.
